@@ -1,0 +1,495 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.png">
+  <link rel="icon" href="/blog/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="wanger">
+  <meta name="keywords" content="">
+  
+  <title>分布度量 - Wang Er</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"wanger-sjtu.github.io","root":"/blog/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/blog/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/blog/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="分布度量">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2018-09-10 00:00" pubdate>
+        2018年9月10日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">分布度量</h1>
+            
+            <div class="markdown-body">
+              <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/27305237">https://zhuanlan.zhihu.com/p/27305237</a></p>
+<p>这篇文章主要总结了机器学习和统计学中一些比较常见的距离和相似度度量，稍后会把代码开源出来。计算两个向量（点、矩阵）的距离和相似度是许多机器学习算法的基础，有时候一个好的距离度量就能决定算法最后的结果好坏。比如KNN分类算法就对距离非常敏感。结合我在做的迁移学习工作，本质上就是找一个变换使得源域和目标域的距离最小（相似度最大）。所以，相似度和距离度量在机器学习中非常重要。</p>
+<p>本文主要包括两种类型：常见的一些距离和相似度，以及针对概率分布的距离度量。代码在最后。</p>
+<h2 id="常见距离与相似度度量"><a href="#常见距离与相似度度量" class="headerlink" title="常见距离与相似度度量"></a><strong>常见距离与相似度度量</strong></h2><h3 id="欧氏距离"><a href="#欧氏距离" class="headerlink" title="欧氏距离"></a>欧氏距离</h3><p>定义在两个向量（两个点）上：点$\mathbf{x}$和点$\mathbf{y}$的欧氏距离为：</p>
+<p><img src="https://www.zhihu.com/equation?tex=d_%7BEuclidean%7D%3D%5Csqrt%7B%28%5Cmathbf%7Bx%7D-%5Cmathbf%7By%7D%29%5E%5Ctop+%28%5Cmathbf%7Bx%7D-%5Cmathbf%7By%7D%29%7D" srcset="/blog/img/loading.gif" lazyload alt="d_{Euclidean}=\sqrt{(\mathbf{x}-\mathbf{y})^\top (\mathbf{x}-\mathbf{y})}"></p>
+<h3 id="闵可夫斯基距离"><a href="#闵可夫斯基距离" class="headerlink" title="闵可夫斯基距离"></a>闵可夫斯基距离</h3><p>Minkowski distance， 两个向量（点）的$p$阶距离：</p>
+<script type="math/tex; mode=display">
+d_{Minkowski}=(|\mathbf{x}-\mathbf{y}|^p)^{1/p}</script><p>当$p=1$时就是曼哈顿距离，当$p=2$时就是欧氏距离。</p>
+<h3 id="马氏距离"><a href="#马氏距离" class="headerlink" title="马氏距离"></a>马氏距离</h3><p>定义在两个向量（两个点）上，这两个点在同一个分布里。点$\mathbf{x}$和点$\mathbf{y}$的马氏距离为：</p>
+<script type="math/tex; mode=display">
+d_{Mahalanobis}=\sqrt{(\mathbf{x}-\mathbf{y})^\top \Sigma^{-1} (\mathbf{x}-\mathbf{y})}</script><p>其中，$\Sigma$是这个分布的协方差。</p>
+<p>当$\Sigma=\mathbf{I}$时，马氏距离退化为欧氏距离。</p>
+<h3 id="互信息"><a href="#互信息" class="headerlink" title="互信息"></a>互信息</h3><p>定义在两个概率分布$X,Y$上，$x \in X, y \in Y$.它们的互信息为：</p>
+<script type="math/tex; mode=display">
+I(X;Y)=\sum_{x \in X} \sum_{y \in Y} p(x,y) \log \frac{p(x,y)}{p(x)p(y)}</script><h3 id="余弦相似度"><a href="#余弦相似度" class="headerlink" title="余弦相似度"></a>余弦相似度</h3><p>衡量两个向量的相关性（夹角的余弦）。向量$\mathbf{x},\mathbf{y}$的余弦相似度为：</p>
+<p>$\cos (\mathbf{x},\mathbf{y}) = \frac{\mathbf{x} \cdot \mathbf{y}}{\vert \mathbf{x} \vert \cdot \vert \mathbf{y} \vert }$</p>
+<p>理解：向量的内积除以向量的数量积。</p>
+<h3 id="皮尔逊相关系数"><a href="#皮尔逊相关系数" class="headerlink" title="皮尔逊相关系数"></a>皮尔逊相关系数</h3><p>衡量两个随机变量的相关性。随机变量$X,Y$的Pearson相关系数为：</p>
+<script type="math/tex; mode=display">\rho_{X,Y}=\frac{Cov(X,Y)}{\sigma_X \sigma_Y}</script><p>理解：协方差矩阵除以标准差之积。</p>
+<p>范围：$[-1,1]$，绝对值越大表示（正/负）相关性越大。</p>
+<h3 id="Jaccard相关系数"><a href="#Jaccard相关系数" class="headerlink" title="Jaccard相关系数"></a>Jaccard相关系数</h3><p>对两个集合$X,Y$，判断他们的相关性，借用集合的手段：</p>
+<script type="math/tex; mode=display">
+J=\frac{X \cap Y}{X \cup Y}</script><p>理解：两个集合的交集除以并集。</p>
+<p>扩展：Jaccard距离=1-J。</p>
+<h2 id="概率分布的距离度量"><a href="#概率分布的距离度量" class="headerlink" title="概率分布的距离度量"></a><strong>概率分布的距离度量</strong></h2><h3 id="KL散度"><a href="#KL散度" class="headerlink" title="KL散度"></a>KL散度</h3><p>Kullback–Leibler divergence，相对熵，衡量两个概率分布$P(x),Q(x)$的距离：</p>
+<script type="math/tex; mode=display">
+D_{KL}(P||Q)=\sum_{i=1} P(x) \log \frac{P(x)}{Q(x)}</script><p>这是一个非对称距离：</p>
+<script type="math/tex; mode=display">
+D_{KL}(P||Q) \ne D_{KL}(Q||P)</script><h3 id="JS距离"><a href="#JS距离" class="headerlink" title="JS距离"></a>JS距离</h3><p>Jensen–Shannon divergence，基于KL散度发展而来，是对称度量：</p>
+<script type="math/tex; mode=display">
+JSD(P||Q)= \frac{1}{2} D_{KL}(P||M) + \frac{1}{2} D_{KL}(Q||M)</script><p>其中<script type="math/tex">M=\frac{1}{2}(P+Q)</script></p>
+<h3 id="MMD距离"><a href="#MMD距离" class="headerlink" title="MMD距离"></a>MMD距离</h3><p>Maximum mean discrepancy，度量在再生希尔伯特空间中两个分布的距离，是一种核学习方法。两个随机变量的距离为：</p>
+<script type="math/tex; mode=display">
+MMD(X,Y)=\left \Vert \sum_{i=1}^{n_1}\phi(\mathbf{x}_i)- \sum_{j=1}^{n_2}\phi(\mathbf{y}_j) \right \Vert^2_\mathcal{H}</script><p>其中<script type="math/tex">\phi(\cdot)</script>是映射，用于把原变量映射到高维空间中。</p>
+<p>理解：就是求两堆数据在高维空间中的均值的距离。</p>
+<h3 id="Principal-angle"><a href="#Principal-angle" class="headerlink" title="Principal angle"></a>Principal angle</h3><p>也是将两个分布映射到高维空间（格拉斯曼流形）中，在流形中两堆数据就可以看成两个点。Principal angle是求这两堆数据的对应维度的夹角之和。对于两个矩阵$\mathbf{X},\mathbf{Y}$，计算方法：首先正交化（用PCA）两个矩阵，然后：</p>
+<script type="math/tex; mode=display">
+PA(\mathbf{X},\mathbf{Y})=\sum_{i=1}^{\min(m,n)} \sin \theta_i</script><p>其中$m,n$分别是两个矩阵的维度，$\theta_i$是两个矩阵第$i$个维度的夹角，$\Theta={\theta_1,\theta_2,\cdots,\theta_t}$是两个矩阵SVD后的角度：</p>
+<script type="math/tex; mode=display">
+\mathbf{X}^\top\mathbf{Y}=\mathbf{U} (\cos \Theta) \mathbf{V}^\top</script><h3 id="HSIC"><a href="#HSIC" class="headerlink" title="HSIC"></a>HSIC</h3><p>希尔伯特-施密特独立性系数，Hilbert-Schmidt Independence Criterion，用来检验两组数据的独立性：</p>
+<script type="math/tex; mode=display">HSIC(X,Y) = trace(HXHY)</script><p>其中$X,Y$是两堆数据的kernel形式。</p>
+<h3 id="Earth-Mover’s-Distance"><a href="#Earth-Mover’s-Distance" class="headerlink" title="Earth Mover’s Distance"></a>Earth Mover’s Distance</h3><p>推土机距离，度量两个分布之间的距离，又叫Wasserstein distance。以最优运输的观点来看，就是分布$X$能够变换成分布$Y$所需要的最小代价：</p>
+<p>一个二分图上的流问题，最小代价就是最小流，用匈牙利算法可以解决。</p>
+<script type="math/tex; mode=display">
+emd(X,Y)=\min{\frac{\sum_{i,j}f_{ij}d(\textbf{x}_i,\textbf{y}_j)}{\sum_{j}w_{yj}}}, s.t. \sum_{i}f_{ij}=w_{yj}, \sum_{j}f_{ij}=w_{xi}.</script><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>可用的代码我找了一个比较全的，用matlab写的，特别简单，直接可以用，输入是两个矩阵，输出是各种距离。地址在这里：<a href="https://link.zhihu.com/?target=https%3A//github.com/shicai/matlab/blob/master/sc_pdist2.m">shicai/matlab</a></p>
+<p><strong>References</strong></p>
+<p>[1] <a href="https://link.zhihu.com/?target=http%3A//blog.csdn.net/pipisorry/article/details/45651315">距离和相似度度量方法 - 皮皮blog - 博客频道 - CSDN.NET</a></p>
+<p>[2]<a href="https://link.zhihu.com/?target=http%3A//chaofan.io/archives/earth-movers-distance-%25E6%258E%25A8%25E5%259C%259F%25E6%259C%25BA%25E8%25B7%259D%25E7%25A6%25BB">Earth Mover’s Distance — 推土机距离</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/Deep-Learning/">Deep Learning</a>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/Machine-Learning/">Machine Learning</a>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/math/">math</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/2018/09/14/2018-09-14-python%20%E8%A3%85%E9%A5%B0%E5%99%A8/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">python 装饰器</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/2018/09/09/2018-09-09-5.Longest%20Palindromic%20Substring/">
+                        <span class="hidden-mobile">5.Longest Palindromic Substring</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/debouncer.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/blog/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/blog/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+</body>
+</html>

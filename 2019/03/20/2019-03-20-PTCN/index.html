@@ -1,0 +1,488 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.png">
+  <link rel="icon" href="/blog/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="wanger">
+  <meta name="keywords" content="">
+  
+  <title>Pixel Transposed Convolutional Networks - Wang Er</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"wanger-sjtu.github.io","root":"/blog/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/blog/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/blog/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Pixel Transposed Convolutional Networks">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-03-20 00:00" pubdate>
+        2019年3月20日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      494 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      6
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Pixel Transposed Convolutional Networks</h1>
+            
+            <div class="markdown-body">
+              <p>论文提出我们常用的 转置卷积（transposed convolutional layer）没有考虑到像素之间的关联性，进而会导致了结果的下降。</p>
+<p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/PTCN/1.jpg" srcset="/blog/img/loading.gif" lazyload alt="compare"></p>
+<p>上图结果对比了使用和不适用Pixel transpose convolutional layer的区别。可以看到作者提出的方法对于像素之间的关联性考虑的更好。</p>
+<h2 id="Convolutional-Layers"><a href="#Convolutional-Layers" class="headerlink" title="Convolutional Layers"></a>Convolutional Layers</h2><p>首先介绍一下卷积操作：</p>
+<p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/PTCN/2.jpg" srcset="/blog/img/loading.gif" lazyload alt="image"></p>
+<p>如图所示,对于一个4*4的矩阵，卷积核大小为3*3的时候，输出为矩阵的大小为2*2。<br>更一般的我们有：</p>
+<script type="math/tex; mode=display">
+N'=\frac{N-k+2p}{stride}+1</script><p>显然卷积操作对应了一个 <code>many-to-one</code> 的映射操作。</p>
+<p>其实在实际计算的时候，卷积操作被重构为矩阵乘法问题。依旧以4*4矩阵，3*3卷积核为例。</p>
+<p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/PTCN/3.jpg" srcset="/blog/img/loading.gif" lazyload alt="image"></p>
+<p>卷积核可以重塑为</p>
+<p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/PTCN/4.jpg" srcset="/blog/img/loading.gif" lazyload alt="image"></p>
+<p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/PTCN/5.jpg" srcset="/blog/img/loading.gif" lazyload alt="image"></p>
+<p>卷积操作可以写成矩阵乘法的问题</p>
+<p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/PTCN/6.jpg" srcset="/blog/img/loading.gif" lazyload alt="image"></p>
+<h2 id="Transposed-Convolutional-Layers"><a href="#Transposed-Convolutional-Layers" class="headerlink" title="Transposed Convolutional Layers"></a>Transposed Convolutional Layers</h2><p>继续我们上面的讨论，如果将这个操作反过来，输入矩阵中的一个值映射到输出矩阵的9个值，这将是一个一对多<code>one-to-many</code>的映射关系。</p>
+<p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/PTCN/7.jpg" srcset="/blog/img/loading.gif" lazyload alt="image"></p>
+<p>那么如何去做？</p>
+<p>在上面提到，卷积操作其实可以转化为 $outputs=inputs\times kernel$的矩阵乘法问题。则显然有 $inputs=kernel^T \times outputs$</p>
+<p>即：</p>
+<p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/PTCN/8.jpg" srcset="/blog/img/loading.gif" lazyload alt="image"></p>
+<p>在论文中，作者提出，转置卷积操作可以分解为几个卷积操作然后 Upsampling 操作的集合：</p>
+<script type="math/tex; mode=display">
+\begin{aligned} 
+F_{1} &=F_{i n} \circledast k_{1} \\ 
+F_{2} &=F_{i n} \circledast k_{2} \\
+F_{3} &=F_{i n} \circledast k_{3} \\
+F_{4} &=F_{i n} \circledast k_{4}  \\
+F_{o u t}&=F_{1} \oplus F_{2} \oplus F_{3} \oplus F_{4}
+\end{aligned}</script><p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/PTCN/9.jpg" srcset="/blog/img/loading.gif" lazyload alt="1D"></p>
+<p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/PTCN/10.jpg" srcset="/blog/img/loading.gif" lazyload alt="2D"></p>
+<script type="math/tex; mode=display">
+\begin{aligned} 
+F_{1} &=F_{i n} \circledast k_{1} \\ 
+F_{2} &=\left[F_{i n}, F_{1}\right] \circledast k_{2} \\ 
+F_{3} &=\left[F_{i n}, F_{1}, F_{2}\right] \circledast k_{3} \\ 
+F_{4} &=\left[F_{i n}, F_{1}, F_{2}, F_{3}\right] \circledast k_{4} \\ 
+F_{o u t} &=F_{1} \oplus F_{2} \oplus F_{3} \oplus F_{4} \end{aligned}</script><p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/PTCN/11.jpg" srcset="/blog/img/loading.gif" lazyload alt="image"></p>
+<p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/PTCN/12.jpg" srcset="/blog/img/loading.gif" lazyload alt="image"></p>
+<p><strong>注：</strong></p>
+<ol>
+<li>关于卷积操作介绍来自于：<a target="_blank" rel="noopener" href="https://blog.csdn.net/LoseInVain/article/details/81098502">CSDN</a></li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/Deep-Learning/">Deep Learning</a>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/Segmentation/">Segmentation</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/2019/03/23/2019-03-23-PVnet/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">PVNet Pixel-wise Voting Network for 6DoF Pose Estimation</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/2019/03/18/2019-03-18-subset_sum/">
+                        <span class="hidden-mobile">subset_sum</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/debouncer.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/blog/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/blog/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+</body>
+</html>

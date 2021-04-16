@@ -1,0 +1,493 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.png">
+  <link rel="icon" href="/blog/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="wanger">
+  <meta name="keywords" content="">
+  
+  <title>show attention tell - Wang Er</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"wanger-sjtu.github.io","root":"/blog/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/blog/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/blog/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="show attention tell">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2018-10-11 00:00" pubdate>
+        2018年10月11日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      14
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">show attention tell</h1>
+            
+            <div class="markdown-body">
+              <h2 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h2><p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/show-attend-tell/1.jpg" srcset="/blog/img/loading.gif" lazyload alt="show_attention_tell"></p>
+<p>流程大致如下：</p>
+<p><strong>Encoder</strong></p>
+<p>通过CNN的结构得到一个low level features $[a_0, \dots, a_L]$，这里得到的就是$L$个向量。</p>
+<p><strong>Decoder : LSTM</strong></p>
+<p>最终要得到的为$ [y_1,\dots, y_c]\quad y_i \in \mathcal{R}^K$</p>
+<p>LSTM的输入输出为</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}\textbf{i}_t \\\textbf{f}_t \\\textbf{o}_t \\\textbf{g}_t \\\end{pmatrix}=\begin{pmatrix}\sigma\\ \sigma\\ \sigma\\ \tanh \end{pmatrix}T_{D+m+n, n} \ \begin{pmatrix}E\textbf{y}_{t-1}\\ \textbf{h}_{t-1}\\ \hat{\textbf z}_t \end{pmatrix}</script><script type="math/tex; mode=display">
+\textbf{c}_t=\textbf{f}_t \odot \textbf{c}_{t-1} + \textbf{i}_t \odot \textbf{g}_t</script><script type="math/tex; mode=display">
+\textbf{h}_t = \textbf{o}_t \odot \tanh(\textbf{c}_t)</script><p> 最右边括号里的三个量是四个式子共有的三个输入量：$Ey<em>{t−1}$ 是look-up得到词 $y</em>{t−1}$ 的 m 维词向量；$h_t−1$ 是上一时刻的隐状态；<strong>$z^t∈R^D$ 是LSTM真正意义上的“输入”，</strong>代表的是捕捉了特定区域视觉信息的上下文向量，既然它和时刻 <code>t</code>有关，就说明它是一个动态变化的量，在不同的时刻将会捕捉到与本时刻相对应的相关图像区域。这个量将由attention机制计算得到。</p>
+<p> 第二个式子是更新旧的细胞状态，element-wise 的运算表示三个门控将对各自控制的向量的每个元素做“取舍”：0 到 1 分别代表完全抛弃到完全保留。</p>
+<p>第三个式子是得到隐状态。</p>
+<blockquote>
+<p>作者给出了隐状态和细胞状态的初始值的计算方式，使用两个独立的多层感知机，感知机的输入是各个图像区域特征的平均</p>
+<script type="math/tex; mode=display">
+\textbf c_0=f_{\text{init,c}}(\frac1L\sum_{i=1}^L\textbf a_i)</script><script type="math/tex; mode=display">
+\textbf h_0=f_{\text{init,h}}(\frac1L\sum_{i=1}^L\textbf a_i)</script></blockquote>
+<p>有了隐状态，就可以计算词表中各个词的概率值，那么取概率最大的那个作为当前时刻生成的词，并将作为下一时刻的输入。其实就是个<strong>全连接层(deep output layer)</strong>：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+p(\textbf{y}_t|\textbf{a}, \textbf y_1,...,\textbf y_{t-1}) \propto \exp (L_o (E \textbf{y}_{t-1} + L_h \textbf{h}_t + L_z \hat{\textbf{z}}_t))\\
+\\
+ L_o \in R^{K\times m}, L_h \in R^{m\times n}, L_z \in R^{m\times D}
+\end{aligned}</script><p><strong>Attention</strong></p>
+<p>上面介绍了最后要得到 $[y_0,\dots, y_c]$，需要输入 $z_i$ ，上下文信息。那么就是如何从encoder得到的feature map得到最终的$z_i$.</p>
+<p> 通过attention机制计算出的$z_t$ 被称为 context vector，是捕捉了特定区域视觉信息的上下文向量。</p>
+<p> 需要明确，attention要实现的是在解码的不同时刻可以关注不同的图像区域，进而可以生成更合理的词。那么，在attention中就有两个比较关键的量，一个是和时刻 t 相关，对应于解码时刻；另一个是输入序列的区域  $a_i $，对应图像的一个区域。</p>
+<p>实现这种机制的方式就是在时刻$ t$ ，为输入序列的各个区域$ i$ 计算出一个权重 $α<em>{ti}$ 。因为需要满足输入序列的各个区域的权重是加和为一的，使用<code>Softmax</code>来实现这一点。至于<code>Softmax</code>需要输入的信息，则如上所讲，需要包含两个方面：一个是被计算的区域 $a_i$ ，另一个就是上一时刻 t-1 的信息 $h</em>{t−1}$ </p>
+<script type="math/tex; mode=display">
+e_{ti}=f_{\text{att}}(\textbf a_i,\textbf h_{t-1})</script><script type="math/tex; mode=display">
+\alpha_{ti}=\frac{\exp(e_{ti})}{\sum_{k=1}^L\exp(e_{tk})}</script><p>式中的 $f_{att} $是耦合计算区域 i 和时刻 t 这两个信息的打分函数。文中使用<strong>多层感知机</strong>(MLP)</p>
+<p>有了权重，就可以计算 $z_t$ 了：</p>
+<script type="math/tex; mode=display">
+\hat{\textbf z}_t=\phi(\{\textbf a_i\},\{\alpha_{ti}\})</script><p>这个函数 $ϕ$ 就代指文中提出的两种attention机制，对应于将权重施加到图像区域到两种不同的策略。</p>
+<p><strong>soft attention</strong></p>
+<script type="math/tex; mode=display">
+\text{E}_{p(s_t|a)}[\hat{z}_t]=\sum_{i=1}^{L}\alpha_{t,i}a_i</script><p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/show-attend-tell/2.png" srcset="/blog/img/loading.gif" lazyload alt="soft"></p>
+<p><strong>hard attention</strong></p>
+<p>在soft attention中，我们采用的是加权求和的方式得到$z_t$的。前面我们得到的$\sum \alpha_i=1$，因此可以把$\alpha_i$解释为我们注意到第$i$个特征区域的可能性（置信度）。所以在hard attention中，我们是把$\alpha_i$看作从$x_i$中的采样率.</p>
+<p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/show-attend-tell/3.jpg" srcset="/blog/img/loading.gif" lazyload alt=""></p>
+<p>hard attention 使用采样的方法替代了确定性的计算方法。反向传播过程中使用MC（蒙特卡洛）方法采样平均我们的计算梯度。</p>
+<blockquote>
+<p>Soft attention is more popular because the backpropagation seems more effective.</p>
+</blockquote>
+<hr>
+<p>ref:</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://jhui.github.io/2017/03/15/Soft-and-hard-attention/">https://jhui.github.io/2017/03/15/Soft-and-hard-attention/</a></li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/paper-notes/">paper notes</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/2018/10/23/2018-10-23-import%20cv2%20error/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">import cv2 error</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/2018/09/27/2018-09-27-CAM/">
+                        <span class="hidden-mobile">Learning Deep Features for Discriminative Localization</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/debouncer.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/blog/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/blog/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+</body>
+</html>

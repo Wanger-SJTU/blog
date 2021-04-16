@@ -1,0 +1,777 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.png">
+  <link rel="icon" href="/blog/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="王二">
+  <meta name="keywords" content="">
+  
+  <title>Wang Er</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"wanger-sjtu.github.io","root":"/blog/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/blog/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/blog/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="An elegant Material-Design theme for Hexo">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/2021/04/16/2019-9-4-%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95-%E5%9F%BA%E6%9C%AC%E5%88%B0kaiming/">初始化方法-基本到kaiming</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/blog/2021/04/16/2019-9-4-%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95-%E5%9F%BA%E6%9C%AC%E5%88%B0kaiming/">
+          
+          
+            
+          
+          为什么需要初始化初始化的原因，
+
+防止每一层的输出太大或者太小，导致梯度反向传播过程中，梯度爆炸或者梯度消失。
+不能采用统一值得原因，因为统一值得初始化会使得每一层网络在不同通道学到得特征相同。
+
+上述原因都会导致，网络模型不能收敛。
+简单例子得说明假如我们有一个输入x ，定义为
+1&gt;&gt;&gt; x = torch.randn(512)
+x是`均值为 $0$，方差是 $1$ 的高斯分布
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-16 11:20" pubdate>
+              2021-04-16
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/DL/">DL</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/2021/04/16/2018-09-20-normalization%20layer/">BN及其变体</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/blog/2021/04/16/2018-09-20-normalization%20layer/">
+          
+          
+            
+          
+          
+Batch norm 介绍  BN
+IN介绍IN
+
+Batch-Renormalization
+问题
+batch norm原作者对其的优化，该方法保证了train和inference阶段的等效性，解决了非独立同分布和小minibatch的问题
+
+算法
+ 
+r和d首先通过minibatch计算出，但stop_gradient使得反传中r和d不被更新，因此r和d不被当做训练参数对待。试想如果r和d作
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-16 11:20" pubdate>
+              2021-04-16
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/Deep-Learning/">Deep Learning</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/2019/08/11/2019-8-11-Multi-path%20Learning%20for%20Object%20Pose%20Estimation%20Across%20Domains/">Multi-path Learning for Object Pose Estimation Across Domains</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/blog/2019/08/11/2019-8-11-Multi-path%20Learning%20for%20Object%20Pose%20Estimation%20Across%20Domains/">
+          
+          
+            
+          
+          Multi-path Learning for Object Pose Estimation Across Domains论文框架
+论文的模型思路来自于Augmented Autoencoder (AAE) 。通过训练一个Autoencoder，来学习物体6D姿态的潜在信息。进而利用潜在编码进行姿态求解。不同于AAE的是，这篇论文使用的是多路解码器，encoder部分输入是数据增强以后不同角度的R
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-08-11 00:00" pubdate>
+              2019-08-11
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/2019/07/23/2019-7-23-%E9%93%BE%E8%A1%A8%E5%8F%8D%E8%BD%AC/">链表反转</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/blog/2019/07/23/2019-7-23-%E9%93%BE%E8%A1%A8%E5%8F%8D%E8%BD%AC/">
+          
+          
+            
+          
+          leetcode 206 单链表反转12输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL
+迭代方法首先设置pre,cur,lat三个指针12pre   cur  latnull   1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; null接着cur.next = 
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-07-23 00:00" pubdate>
+              2019-07-23
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/leetcode/">leetcode</a>
+            
+              <a href="/blog/tags/linkedList/">linkedList</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/2019/06/13/2019-6-13-STN_CTC/">STN_CTC</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/blog/2019/06/13/2019-6-13-STN_CTC/">
+          
+          
+            
+          
+          STN（spatial transformer network， 空间变换网络）目的在于增强CNN的旋转不变性以及对于仿射变换的鲁棒性。最终让网络模型学习了对平移、尺度变换、旋转和更多常见的扭曲的不变性。
+ST的结构如上图所示,每一个ST模块由Localisation net, Grid generator和Sample组成, Localisation net决定输入所需变换的参数 $θ$, Gr
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-06-13 00:00" pubdate>
+              2019-06-13
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/2019/04/26/2019-04-26-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">C++的构造函数以及拷贝构造函数</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/blog/2019/04/26/2019-04-26-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">
+          
+          
+            
+          
+          如显示不正常点击查看markdown
+调用拷贝构造函数的几种情况
+当类中成员有指针变量、类中有动态内存分配时常常需要用户自己定义拷贝构造函数。
+
+在什么情况下系统会调用拷贝构造函数：
+
+（1）用类的一个对象去初始化另一个对象时（2）当函数的形参是类的对象时（也就是值传递时），如果是引用传递则不会调用（3）当函数的返回值是类的对象或引用时
+
+代码示例：123456789101112131415161
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-04-26 00:00" pubdate>
+              2019-04-26
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/C/">C++</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/2019/04/26/2019-04-26-C++%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8/">C++ 初始化列表</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/blog/2019/04/26/2019-04-26-C++%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8/">
+          
+          
+            
+          
+          类对象的构造顺序是：1.分配内存，调用构造函数时，隐式／显示的初始化各数据成员；2.进入构造函数后在构造函数中执行一般赋值与计算。
+使用初始化列表有两个原因：原因1.必须这样做：
+《C++ Primer》中提到在以下三种情况下需要使用初始化成员列表： 
+
+需要初始化的数据成员是对象的情况(这里包含了继承情况下，通过显示调用父类的构造函数对父类数据成员进行初始化)； 
+需要初始化const修饰的类成
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-04-26 00:00" pubdate>
+              2019-04-26
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/C/">C++</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/2019/04/26/2019-4-26-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8/">C++初始化列表</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/blog/2019/04/26/2019-4-26-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8/">
+          
+          
+            
+          
+          
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-04-26 00:00" pubdate>
+              2019-04-26
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/C/">C++</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/2019/04/26/2019-4-26-charinstruct/">Struct中的char*与char数组</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/blog/2019/04/26/2019-4-26-charinstruct/">
+          
+          
+            
+          
+          这个问题是阿里的一个面试题。当时没有很清楚，答得很差，特地实验看一下运行结果。
+
+在结构体中定义了一个char*指针，与定义一个零元素的char数组有什么区别？
+
+作用常用来构成缓冲区。比起指针，用空数组有这样的优势：
+
+不需要初始化，数组名直接就是所在的偏移；
+不占任何空间，指针需要占用int长度空间，空数组不占任何空间。
+“这个数组不占用任何内存”，意味着这样的结构节省空间；“该数组的内存地址
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-04-26 00:00" pubdate>
+              2019-04-26
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/C/">C++</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/2019/04/13/2019-04-13-add_digits/">add digits</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/blog/2019/04/13/2019-04-13-add_digits/">
+          
+          
+            
+          
+          Add DigitsGiven a non-negative integer num, repeatedly add all its digits until the result has only one digit.
+Example:
+
+Input: 38Output: 2 
+
+Explanation: The process is like: 3 + 8 = 11, 1 + 1 = 2.  
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-04-13 00:00" pubdate>
+              2019-04-13
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/leetcode/">leetcode</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/#board">2</a><a class="page-number" href="/blog/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/7/#board">7</a><a class="extend next" rel="next" href="/blog/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/debouncer.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/blog/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/blog/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+</body>
+</html>

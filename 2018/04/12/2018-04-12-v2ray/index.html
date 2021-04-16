@@ -1,0 +1,505 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.png">
+  <link rel="icon" href="/blog/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="wanger">
+  <meta name="keywords" content="">
+  
+  <title>v2ray - Wang Er</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"wanger-sjtu.github.io","root":"/blog/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/blog/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/blog/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="v2ray">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2018-04-12 00:00" pubdate>
+        2018年4月12日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      809 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      10
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">v2ray</h1>
+            
+            <div class="markdown-body">
+              <p>centos 7 安装 v2ray</p>
+<h3 id="server端配置"><a href="#server端配置" class="headerlink" title="server端配置"></a>server端配置</h3><p>vps要求：</p>
+<ul>
+<li><p>在墙外，这没什么好说的</p>
+</li>
+<li><p>Arch、Ubuntu、CentOS，Debian都支持，最好是64位系统</p>
+</li>
+<li><p>服务器时间和你本地时间误差要在一分钟之类，否则会连不上，所以需要在连接之前对服务器进行时间校对</p>
+<p><strong>服务器校时</strong></p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">yum</span>/apt -y install ntpdate<br><span class="hljs-attribute">ntpdate</span> time<span class="hljs-number">5</span>.aliyun.com<br></code></pre></td></tr></table></figure>
+<p><strong>查看时区</strong></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">ls -l <span class="hljs-regexp">/etc/</span>localtime<br><span class="hljs-regexp">//</span>lrwxrwxrwx <span class="hljs-number">1</span> root root <span class="hljs-number">27</span> Jan <span class="hljs-number">26</span> <span class="hljs-number">05</span>:<span class="hljs-number">54</span> <span class="hljs-regexp">/etc/</span>localtime -&gt; <span class="hljs-regexp">/usr/</span>share<span class="hljs-regexp">/zoneinfo/</span>Etc/UTC<br></code></pre></td></tr></table></figure>
+<p><strong>更改系统时区</strong></p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs gradle">rm -f <span class="hljs-regexp">/etc/</span>localtime<br>ln -s <span class="hljs-regexp">/usr/</span>share<span class="hljs-regexp">/zoneinfo/</span>Asia<span class="hljs-regexp">/Shanghai /</span>etc/localtime<br></code></pre></td></tr></table></figure>
+<p><strong>查看确认系统时间</strong></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">date -R<br><span class="hljs-regexp">//</span>Wed, <span class="hljs-number">31</span> Jan <span class="hljs-number">2018</span> <span class="hljs-number">10</span>:<span class="hljs-number">00</span>:<span class="hljs-number">26</span> +<span class="hljs-number">0800</span><br></code></pre></td></tr></table></figure>
+<p><strong>安装ufw</strong></p>
+<p>ufw是linux下的防火墙配置工具，使用更加友好。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">yum/apt-<span class="hljs-builtin-name">get</span> install ufw<br></code></pre></td></tr></table></figure>
+<p>​</p>
+<p>​</p>
+</li>
+</ul>
+<h3 id="server端安装"><a href="#server端安装" class="headerlink" title="server端安装"></a>server端安装</h3><p>Linux服务器下面命令基本一样。这里的安装方式跟<a target="_blank" rel="noopener" href="https://www.v2ray.com/chapter_00/install.html">官方教程一样</a></p>
+<p><code>bash &lt;(curl -L -s https://install.direct/go.sh)</code></p>
+<p><strong>启动服务并且查看服务状态</strong></p>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs smali">systemctl start v2ray<br>systemctl status v2ray	<br></code></pre></td></tr></table></figure>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs smali">v2ray.service - V2Ray Service<br>Loaded: loaded (/etc/systemd/system/v2ray.service; enabled; vendor preset: enabled)<br>Active: active (running) since Wed 2018-01-31 00:32:29 UTC; 8h ago<br>Main PID: 2392 (v2ray)<br>Tasks: 7<br>Memory: 5.6M<br>CPU: 4.512s<br>CGroup: /system.slice/v2ray.service<br>└─2392 /usr/bin/v2ray/v2ray -config /etc/v2ray/config.json<br><br>Jan 31 00:32:29<span class="hljs-built_in"> instance-5 </span>systemd[1]: Started V2Ray Service.<br>Jan 31 00:32:29<span class="hljs-built_in"> instance-5 </span>v2ray[2392]: V2Ray v3.6 (die Commanderin) 20180112<br>Jan 31 00:32:29<span class="hljs-built_in"> instance-5 </span>v2ray[2392]: An unified platform for anti-censorship.<br></code></pre></td></tr></table></figure>
+<p>配置文件等客户端结束以后再进行配置。</p>
+<h3 id="客户端下载及配置"><a href="#客户端下载及配置" class="headerlink" title="客户端下载及配置"></a>客户端下载及配置</h3><p>下载一般包括两部分，core程序和GUI程序</p>
+<h4 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h4><p><a target="_blank" rel="noopener" href="https://www.v2ray.com/chapter_00/install.html">core</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayN/releases">GUI</a></p>
+<p>将下载好的core和GUI程序解压到同一文件夹下。打开GUI程序。</p>
+<p><img src="http://ww1.sinaimg.cn/mw690/007arC1sly1g0wf0d59cdj30ya0j6mxp.jpg" srcset="/blog/img/loading.gif" lazyload alt="GUI界面"></p>
+<p>选择服务器-&gt; 添加vmess服务器（或者shadowsocks服务器）。</p>
+<p><img src="http://ww1.sinaimg.cn/mw690/007arC1sly1g0wf0x8bb7j30kf0e6jrm.jpg" srcset="/blog/img/loading.gif" lazyload alt="config"></p>
+<p>填入vps的地址，期望的端口。生成一个id。其余的可以不填。确定以后可以看到服务器列表中有了你的服务器。</p>
+<p>然后选中你的服务器，右键-&gt;导出所选服务器为服务端配置。</p>
+<p>会提示保存一个文件。存为<code>config.json</code></p>
+<h4 id="OS-X"><a href="#OS-X" class="headerlink" title="OS X"></a>OS X</h4><p><a target="_blank" rel="noopener" href="https://www.v2ray.com/chapter_00/install.html">core</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Cenmrev/V2RayX">GUI</a></p>
+<p>基本如上。由于没有mac电脑。请参阅GUI repo的readme文档</p>
+<h4 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h4><p>暂时没有GUI程序。配置情况与服务器基本相同。</p>
+<h3 id="server端配置-1"><a href="#server端配置-1" class="headerlink" title="server端配置"></a>server端配置</h3><ul>
+<li>ssh连接到vps， 目录切换到 <code>\etc\v2ray</code></li>
+</ul>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">cd</span> /etc/v2ray<br><span class="hljs-keyword">vi</span> config.<span class="hljs-keyword">py</span><br></code></pre></td></tr></table></figure>
+<p>按<code>i</code>进入编辑模式，删除所有内容，将上面保存的<code>config.json</code>的内容复制到这里。（注意windows和linux两个系统行尾符不一致，如果你用的是windows系统，再notepad++中将行尾符转为unix格式再进行复制）</p>
+<p>复制结束以后，查看一下内容是否完全复制到vps的设置文件中了。</p>
+<p>按<code>esc</code>键，<code>vi</code>中<code>ctrl+F</code> 和<code>ctrl+B</code> 分别进行下翻页和上翻页。输入 <code>:wq</code>保存退出。</p>
+<ul>
+<li>如果是用<code>winscp</code> 登陆到服务器，可以直接把文件上传到这个文件夹下，替换就好。</li>
+</ul>
+<p>开启防火墙端口</p>
+<p><code>ufw allow -port</code></p>
+<p>这里的<code>-port</code>替换为上面你设置的端口。</p>
+<p>重启<code>v2ray</code>服务。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">service</span> v<span class="hljs-number">2</span>ray restart<br></code></pre></td></tr></table></figure>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>在你的客户端上，右键测试延迟。如果没有问题，就能看到延迟时间了。然后将其设置为活动服务器。</p>
+<h3 id="浏览器设置"><a href="#浏览器设置" class="headerlink" title="浏览器设置"></a>浏览器设置</h3><p>使用SwitchOmega设置PAC</p>
+<h3 id="Proxifer设置"><a href="#Proxifer设置" class="headerlink" title="Proxifer设置"></a>Proxifer设置</h3><p>设置不同程序是否使用代理</p>
+<h3 id="END"><a href="#END" class="headerlink" title="END"></a>END</h3><p>FUCK GFW。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/GFW/">GFW</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/2018/04/12/2018-04-12-reinstall_ubuntu/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Reinstall ubuntu</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/2018/04/06/2018-4-12-git%20decline/">
+                        <span class="hidden-mobile">git decline</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/debouncer.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/blog/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/blog/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+</body>
+</html>
