@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		5.Longest Palindromic Substring | 
+	 
+	Wang Er
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/blog/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "wujun234.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/blog/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/blog/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/blog/" class="logo">Wang Er</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										c++
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/03/c++/C++%20obj/">
+										C++ obj
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/26/c++/C++%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8/">
+										C++ 初始化列表
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2021/04/20/c++/C++%E7%B1%BB%E5%9E%8B%E6%8E%A8%E5%AF%BC%E6%8E%A8%E5%80%92/">
+										C++类型推导推倒
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/02/c++/C++%E8%B0%83%E7%94%A8tensorflow%E6%A8%A1%E5%9E%8B/">
+										C++调用tensorflow模型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/26/c++/charinstruct/">
+										charinstruct
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/26/c++/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">
+										构造函数
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										leetcode
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/29/leetcode/1.2sum/">
+										1.2sum
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/08/02/leetcode/121.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20/">
+										121. Best Time to Buy and Sell Stock 
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/06/leetcode/122.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20II/">
+										122. Best Time to Buy and Sell Stock II
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/29/leetcode/2.%20add%202%20numbers/">
+										2. add 2 numbers
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/29/leetcode/3.%20Longest%20Substring%20Without%20Repeating%20Characters/">
+										3. Longest Substring Without Repeating Characters
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/blog/2018/09/09/leetcode/5.Longest%20Palindromic%20Substring/">
+										5.Longest Palindromic Substring
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/15/leetcode/516.%20Longest%20Palindromic%20Subsequence/">
+										516. Longest Palindromic Subsequence
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/07/leetcode/53.%20Maximum%20Subarray/">
+										53. Maximum Subarray
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/05/leetcode/70.Climbing%20Stairs/">
+										70.Climbing Stairs
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/28/leetcode/93.Restore%20IP%20Addresses/">
+										93.Restore IP Addresses
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/02/06/leetcode/House%20Robber/">
+										House Robber
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/02/leetcode/Integer%20to%20Roman/">
+										Integer to Roman
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/03/leetcode/LCS/">
+										LCS
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/08/03/leetcode/Min%20Cost%20Climbing%20Stairs/">
+										Min Cost Climbing Stairs
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/29/leetcode/Product%20of%20Array%20Except%20Self%20%E9%99%A4%E6%9C%AC%E8%BA%AB%E4%B9%8B%E5%A4%96%E7%9A%84%E6%95%B0%E7%BB%84%E4%B9%8B%E7%A7%AF/">
+										Product of Array Except Self 除本身之外的数组之积
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/02/leetcode/Roman%20to%20Integer/">
+										Roman to Integer
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/13/leetcode/add_digits/">
+										add_digits
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/02/leetcode/baidu0402/">
+										baidu0402
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/02/leetcode/container-with-most-water/">
+										container-with-most-water
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/03/16/leetcode/lru%20cache/">
+										lru cache
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/02/leetcode/max_prefix/">
+										max_prefix
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2017/04/25/leetcode/midianValue2sortedArray/">
+										midianValue2sortedArray
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/04/leetcode/next_array/">
+										next_array
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/03/18/leetcode/subset_sum/">
+										subset_sum
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/07/23/leetcode/%E9%93%BE%E8%A1%A8%E5%8F%8D%E8%BD%AC/">
+										链表反转
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										python
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/06/27/python/2018-06-27-numpy%E6%8C%87%E5%8C%97/">
+										2018-06-27-numpy指北
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/01/python/2018-09-01-python%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+										2018-09-01-python多线程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/10/23/python/2018-10-23-import%20cv2%20error/">
+										2018-10-23-import cv2 error
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/03/25/python/2019-03-25-pythondecorator/">
+										2019-03-25-pythondecorator
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										其他
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/04/12/%E5%85%B6%E4%BB%96/2018-04-12-v2ray/">
+										2018-04-12-v2ray
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										深度学习
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/03/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2d3D%20alignment/">
+										2d3D alignment
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/22/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/Adapt%20SegNet/">
+										Adapt SegNet
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/27/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/CAM/">
+										CAM
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/16/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/CYCADA/">
+										CYCADA
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/04/13/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/CrossEntrophy/">
+										CrossEntrophy
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/DML%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
+										DML阅读笔记
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/FCAN/">
+										FCAN
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/10/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/ML_DL%20%E5%88%86%E5%B8%83%E5%BA%A6%E9%87%8F/">
+										ML_DL 分布度量
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/08/11/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/Multi-path%20Learning%20for%20Object%20Pose%20Estimation%20Across%20Domains/">
+										Multi-path Learning for Object Pose Estimation Across Domains
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/08/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/PSP%20Network/">
+										PSP Network
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/PTCN/">
+										PTCN
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/03/23/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/PVnet/">
+										PVnet
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/03/15/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/RANSACsample/">
+										RANSACsample
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/06/13/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/STN_CTC/">
+										STN_CTC
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/activation%20normalization%20layer/">
+										activation normalization layer
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/08/01/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/global%20average%20pooling/">
+										global average pooling
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/instance%20norm/">
+										instance norm
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/17/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/loss%20function/">
+										loss function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2021/04/24/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/normalization%20layer/">
+										normalization layer
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/print%20%E6%A2%AF%E5%BA%A6/">
+										print 梯度
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/python%20%E8%A3%85%E9%A5%B0%E5%99%A8/">
+										python 装饰器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/10/11/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/show%20attend%20tell/">
+										show attend tell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/03/11/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/training%20ImageNet%201%20hour/">
+										training ImageNet 1 hour
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2021/04/24/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95-%E5%9F%BA%E6%9C%AC%E5%88%B0kaiming/">
+										初始化方法-基本到kaiming
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/04/06/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E5%BA%A6%E9%87%8F/">
+										语义分割度量
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+
+	5.Longest Palindromic Substring
+</h1>
+<div class="article-meta">
+	
+	<span>王二</span>
+	<span>2018-09-09 00:00:00</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/leetcode/">leetcode</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<blockquote>
+<p>连续最长回文字符串</p>
+<p><strong>Example 1:</strong></p>
+<pre><code>Input: &quot;babad&quot;
+Output: &quot;bab&quot;
+Note: &quot;aba&quot; is also a valid answer.
+</code></pre><p><strong>Example 2:</strong></p>
+<pre><code>Input: &quot;cbbd&quot;
+Output: &quot;bb&quot;
+</code></pre></blockquote>
+<p><strong>brute force</strong></p>
+<blockquote>
+<p>就是暴力搜索。</p>
+<p>三层循环，左右边界以及判断是否为回文字符串</p>
+</blockquote>
+<pre><code class="lang-python">def brute_force(s):
+    pal_str =&quot;&quot;
+    for i in range(len(s)):
+        for j in range(i, len(s)):
+            while i &lt;= j:
+                if s[i] != s[j]:
+                    continue
+                i += 1
+                j -= 1
+        if len(pal_str) &lt; j-i+1;
+            pal_str=s[i,j+1]
+      return pal_str
+</code></pre>
+<p> <strong>Dynamic Programming</strong></p>
+<blockquote>
+<p>考虑”ababa”的例子，如果知道’”bab”‘是回文串，那么边上两个字母相同，就有整个字符串为回文字串。</p>
+<p>定义$P(i,j)$</p>
+<script type="math/tex; mode=display">
+P(i,j)=\left\{ 
+\begin{aligned}
+    \text{True}   &\quad  S_{i,j}\text{是回文串}\\
+    \text{False}  &\quad  \text{其他}
+\end{aligned} 
+\right.</script><p>显然有</p>
+<script type="math/tex; mode=display">
+P(i,j)=(P(i+1,j−1) \quad \text{and} \quad S_i==S_j)</script><p>而且有 </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+P(i,i) &= true \\
+P(i, i+1) &= (S_i == S_{i+1} )
+\end{aligned}</script></blockquote>
+<pre><code class="lang-python">  def DP(s):
+    table = [[False for i in range(len(s))] for j in range(len(s))]
+        sub_str = &quot;&quot;
+        lens = 1
+        while lens &lt; len(s):
+            for start in range(len(s)):
+                end = start + lens -1
+                if end &gt;= len(s):
+                    break
+                print(start, end)
+                table[start][end] = (lens == 1 or lens == 2 or table[start+1][end-1]) \
+                         and s[start] == s[end]
+                if table[start][end] and len(sub_str) &lt; end-start +1:
+                    sub_str = s[start:end+1]
+            lens += 1
+        return sub_str
+</code></pre>
+<p><strong>Expand Around Center</strong></p>
+<blockquote>
+<p>对于任一字符，依此为中心向两边扩展。直到不是回文串为止。记录长度最大的。</p>
+</blockquote>
+<pre><code class="lang-python">def expandAroundCenter(s):
+    start = 0 
+    end = 0
+    for i in range(len(s)):
+        len1 = expand(s, i, i)
+        len2 = expand(s, i, i+1)
+        max_len = max(len1,len2)
+
+        if max_len &gt;= end -start + 1:
+            start = i - int((max_len - 1) // 2)
+            end   = i + int(max_len // 2)
+    return s[start:end + 1]
+
+def expand(s, left, right):
+    L = left
+    R = right
+    while L &gt;=0 and R &lt; len(s) and s[L] == s[R]:
+        L -= 1
+        R += 1
+    return R - L - 1
+</code></pre>
+<p><strong>Manacher’s Algorithm 马拉车算法</strong></p>
+<blockquote>
+<p> 利用已知的对称信息和回文串的对称性得出其他位置的对称信息，并且不用考虑字符串长度是奇数还是偶数的，因为首先我们对字符串进行处理：在字符串的首尾和字符间加上<code>&quot;#&quot;</code>，如<code>&quot;nbbn&quot;</code>改变后为<code>&quot;#n#b#b#n#&quot;</code>，再在首位加上<code>&quot;&amp;&quot;</code>，所以最终经过处理的字符串为<code>&quot;&amp;#n#b#b#n#&quot;</code>。另外我们还需要辅助一个和处理后长度一致的int数组，该数组用来存字符串对应位置的最长回文长度加上本身（就是最长回文数+1），如下：</p>
+<p><a target="_blank" rel="noopener" href="http://images.jucongyuan.com/QQ20160825-0.png"><img src="http://images.jucongyuan.com/QQ20160825-0.png" alt="Happy"></a></p>
+<p>如字符串第二个<code>b</code>两边对称的长度为1，所以它对应的int数组内的值为2。有了这个表格，我们就知道，只要求出字符串对应位置上int数组的值，那么回文串自然就出来了，那int[]数组怎么求出来呢？也就是怎么利用已知的对称信息和回文串的对称性得出其他位置的对称信息呢？首先假设最长回文所在位置为id，到最长回文长度的位置为idMax,如果我们要求i位置上的最长回文长度（也就是int[i]的值），可以根据int[j]的值，前提条件是(0&lt;=j&lt;i,所以int[j]是已知的)，那么是什么原理呢？分为两种情况：</p>
+<ul>
+<li><strong>i &lt;= idMax，通过id的位置找到和i位置对称的j点</strong></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="http://images.jucongyuan.com/QQ20160825-1.png"><img src="http://images.jucongyuan.com/QQ20160825-1.png" alt="Happy"></a></p>
+<ul>
+<li><p><strong>如过<code>int[j] &lt; idMax - i</code>，那么<code>int[i]</code>就等于<code>int[j]</code>。</strong></p>
+<blockquote>
+<p>对称的半径在范围以内</p>
+</blockquote>
+</li>
+<li><p><strong>如果<code>int[j] &gt;= idMax - i</code>，那么<code>int[i]</code>的值大于或者等于<code>int[j]</code>。然后再在这个位置继续向左右延伸判断是否还有回文长度。</strong></p>
+<blockquote>
+<p>此时显然不满足对称关系了，因为越界了。</p>
+</blockquote>
+</li>
+<li><p><strong><code>i &gt; idMax</code>时，所以中心点为i的回文还没有匹配，只有通过循环去匹配了。</strong></p>
+</li>
+</ul>
+</blockquote>
+<pre><code class="lang-java">public static String longestPalindrome(String s) &#123;
+    if (s.length() &lt;= 1)&#123;
+        return s;    
+    &#125; 
+    StringBuilder stringBuilder = new StringBuilder(&quot;$&quot;);
+    for (char c : s.toCharArray()) &#123;
+        stringBuilder.append(&quot;#&quot;);
+        stringBuilder.append(c);
+    &#125;
+    stringBuilder.append(&quot;#&quot;);
+    String str = stringBuilder.toString();
+
+    int id = 0;
+    int idMax = 0;
+    int index = 0;
+    int maxLength = 0;
+
+    int p[] = new int[str.length()];
+
+    for (int curr = 1; curr &lt; str.length(); curr++) &#123;
+        int j = 2 * id - curr;
+
+        // p[curr] = idMax &gt; curr ? Math.min(p[symmetryId], idMax - curr) : 1;
+        // 更容易理解的写法
+        if (idMax &gt; curr)
+        &#123;
+            if (p[j] &lt; idMax - curr)
+                p[curr] = p[j];
+            else
+                p[curr] = idMax - curr;
+        &#125; 
+        else
+        &#123;
+            p[curr] = 1;
+        &#125;
+
+        while (curr + p[curr] &lt; str.length() &amp;&amp; str.charAt(curr + p[curr]) \
+               == str.charAt(curr - p[curr])) &#123;
+            p[curr]++;
+        &#125;
+
+        if (curr + p[curr] &gt; idMax) &#123;
+            id = curr;
+            idMax = curr + p[curr];
+        &#125;
+
+        if (p[curr] &gt; maxLength) &#123;
+            maxLength = p[curr];
+            index = curr;
+        &#125;
+    &#125;
+    return s.substring((index - maxLength) / 2, (index + maxLength) / 2 - 1);
+&#125;
+</code></pre>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/blog/2018/09/10/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/ML_DL%20%E5%88%86%E5%B8%83%E5%BA%A6%E9%87%8F/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  ML_DL 分布度量
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/blog/2018/09/07/leetcode/53.%20Maximum%20Subarray/">
+                53. Maximum Subarray
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+	<div id="vcomments"></div>
+
+
+<script>
+	
+		// 评论
+		new Valine({
+			av: AV,
+			el: '#vcomments',
+			notify: false,
+			verify: false,
+			path: window.location.pathname,
+			appId: '',
+			appKey: '',
+			placeholder: '请输入评论',
+			avatar: 'retro',
+			recordIP: false
+		})
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">王二</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

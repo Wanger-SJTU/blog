@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		Struct中的char*与char数组 | 
+	 
+	Wang Er
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/blog/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "wujun234.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/blog/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/blog/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/blog/" class="logo">Wang Er</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										c++
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/03/c++/C++%20obj/">
+										C++ obj
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/26/c++/C++%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8/">
+										C++ 初始化列表
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2021/04/20/c++/C++%E7%B1%BB%E5%9E%8B%E6%8E%A8%E5%AF%BC%E6%8E%A8%E5%80%92/">
+										C++类型推导推倒
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/02/c++/C++%E8%B0%83%E7%94%A8tensorflow%E6%A8%A1%E5%9E%8B/">
+										C++调用tensorflow模型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/blog/2019/04/26/c++/charinstruct/">
+										charinstruct
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/26/c++/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">
+										构造函数
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										leetcode
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/29/leetcode/1.2sum/">
+										1.2sum
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/08/02/leetcode/121.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20/">
+										121. Best Time to Buy and Sell Stock 
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/06/leetcode/122.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20II/">
+										122. Best Time to Buy and Sell Stock II
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/29/leetcode/2.%20add%202%20numbers/">
+										2. add 2 numbers
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/29/leetcode/3.%20Longest%20Substring%20Without%20Repeating%20Characters/">
+										3. Longest Substring Without Repeating Characters
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/09/leetcode/5.Longest%20Palindromic%20Substring/">
+										5.Longest Palindromic Substring
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/15/leetcode/516.%20Longest%20Palindromic%20Subsequence/">
+										516. Longest Palindromic Subsequence
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/07/leetcode/53.%20Maximum%20Subarray/">
+										53. Maximum Subarray
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/05/leetcode/70.Climbing%20Stairs/">
+										70.Climbing Stairs
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/28/leetcode/93.Restore%20IP%20Addresses/">
+										93.Restore IP Addresses
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/02/06/leetcode/House%20Robber/">
+										House Robber
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/02/leetcode/Integer%20to%20Roman/">
+										Integer to Roman
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/03/leetcode/LCS/">
+										LCS
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/08/03/leetcode/Min%20Cost%20Climbing%20Stairs/">
+										Min Cost Climbing Stairs
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/29/leetcode/Product%20of%20Array%20Except%20Self%20%E9%99%A4%E6%9C%AC%E8%BA%AB%E4%B9%8B%E5%A4%96%E7%9A%84%E6%95%B0%E7%BB%84%E4%B9%8B%E7%A7%AF/">
+										Product of Array Except Self 除本身之外的数组之积
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/02/leetcode/Roman%20to%20Integer/">
+										Roman to Integer
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/13/leetcode/add_digits/">
+										add_digits
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/02/leetcode/baidu0402/">
+										baidu0402
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/02/leetcode/container-with-most-water/">
+										container-with-most-water
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/03/16/leetcode/lru%20cache/">
+										lru cache
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/02/leetcode/max_prefix/">
+										max_prefix
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2017/04/25/leetcode/midianValue2sortedArray/">
+										midianValue2sortedArray
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/04/leetcode/next_array/">
+										next_array
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/03/18/leetcode/subset_sum/">
+										subset_sum
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/07/23/leetcode/%E9%93%BE%E8%A1%A8%E5%8F%8D%E8%BD%AC/">
+										链表反转
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										python
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/06/27/python/2018-06-27-numpy%E6%8C%87%E5%8C%97/">
+										2018-06-27-numpy指北
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/01/python/2018-09-01-python%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+										2018-09-01-python多线程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/10/23/python/2018-10-23-import%20cv2%20error/">
+										2018-10-23-import cv2 error
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/03/25/python/2019-03-25-pythondecorator/">
+										2019-03-25-pythondecorator
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										其他
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/04/12/%E5%85%B6%E4%BB%96/2018-04-12-v2ray/">
+										2018-04-12-v2ray
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										深度学习
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/03/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2d3D%20alignment/">
+										2d3D alignment
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/22/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/Adapt%20SegNet/">
+										Adapt SegNet
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/27/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/CAM/">
+										CAM
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/16/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/CYCADA/">
+										CYCADA
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/04/13/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/CrossEntrophy/">
+										CrossEntrophy
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/DML%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
+										DML阅读笔记
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/FCAN/">
+										FCAN
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/10/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/ML_DL%20%E5%88%86%E5%B8%83%E5%BA%A6%E9%87%8F/">
+										ML_DL 分布度量
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/08/11/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/Multi-path%20Learning%20for%20Object%20Pose%20Estimation%20Across%20Domains/">
+										Multi-path Learning for Object Pose Estimation Across Domains
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/08/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/PSP%20Network/">
+										PSP Network
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/PTCN/">
+										PTCN
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/03/23/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/PVnet/">
+										PVnet
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/03/15/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/RANSACsample/">
+										RANSACsample
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/06/13/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/STN_CTC/">
+										STN_CTC
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/activation%20normalization%20layer/">
+										activation normalization layer
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/08/01/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/global%20average%20pooling/">
+										global average pooling
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/instance%20norm/">
+										instance norm
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/07/17/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/loss%20function/">
+										loss function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2021/04/24/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/normalization%20layer/">
+										normalization layer
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/print%20%E6%A2%AF%E5%BA%A6/">
+										print 梯度
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/09/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/python%20%E8%A3%85%E9%A5%B0%E5%99%A8/">
+										python 装饰器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/10/11/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/show%20attend%20tell/">
+										show attend tell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/03/11/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/training%20ImageNet%201%20hour/">
+										training ImageNet 1 hour
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2021/04/24/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95-%E5%9F%BA%E6%9C%AC%E5%88%B0kaiming/">
+										初始化方法-基本到kaiming
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2018/04/06/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E5%BA%A6%E9%87%8F/">
+										语义分割度量
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+
+	charinstruct
+</h1>
+<div class="article-meta">
+	
+	<span>王二</span>
+	<span>2019-04-26 00:00:00</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/C/">C++</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<p>这个问题是阿里的一个面试题。当时没有很清楚，答得很差，特地实验看一下运行结果。</p>
+<blockquote>
+<p>在结构体中定义了一个<code>char*</code>指针，与定义一个零元素的<code>char</code>数组有什么区别？</p>
+</blockquote>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>常用来构成缓冲区。比起指针，用空数组有这样的优势：</p>
+<ul>
+<li>不需要初始化，数组名直接就是所在的偏移；</li>
+<li>不占任何空间，指针需要占用int长度空间，空数组不占任何空间。<blockquote>
+<p>“这个数组不占用任何内存”，意味着这样的结构节省空间；<br>“该数组的内存地址就和它后面的元素地址相同”，意味着无需初始化，数组名就是后面元素的地址，直接就能当指针使用。</p>
+</blockquote>
+</li>
+</ul>
+<p>这样的写法最适合制作动态buffer，因为可以这样分配空间<code>malloc(sizeof(structXXX) + buff_len)</code>; 直接就把buffer的结构体和缓冲区一块分配了。用起来也非常方便，因为现在空数组其实变成了buff_len长度的数组了。这样的好处是：</p>
+<ul>
+<li>一次分配解决问题，省了不少麻烦。为了防止内存泄露，如果是分两次分配(结构体和缓冲区)，那么要是第二次malloc失败了，必须回滚释放第一个分配的结构体。这样带来了编码麻烦。其次，分配了第二个缓冲区以后，如果结构里面用的是指针，还要为这个指针赋值。同样，在free这个buffer的时候，用指针也要两次free。如果用空数组，所有问题一次解决。</li>
+<li>小内存的管理是非常困难的，如果用指针，这个buffer的struct部分就是小内存了，在系统内存在多了势必严重影响内存管理的性能。要是用空数组把struct和实际数据缓冲区一次分配大块问题，就没有这个问题。如此看来，用空数组既简化编码，又解决了小内存碎片问题提高了性能。</li>
+</ul>
+<p>结构体最后使用0或1长度数组的原因：</p>
+<blockquote>
+<p>为了方便的管理内存缓冲区(其实就是分配一段连续的内存，减少内存的碎片化)，如果直接使用指针而不使用数组，那么，在分配内存缓冲区时，就必须分配结构体一次，然后再分配结构体内的指针一次，(而此时分配的内存已经与结构体的内存不连续了，所有要分别管理即申请和释放)而如果使用数组，那么只需要一次就可以全部分配出来，反过来，释放时也是一样，使用数组，一次释放。使用指针，得先释放结构体内的指针，再释放结构体，还不能颠倒顺序</p>
+</blockquote>
+<p>结构体中最后一个成员为[1]长度数组的用法：与长度为[0]数组的用法相同，改写为[1]是出于可移植性的考虑。有些编译器不支持[0]数组，可将其改成[]或[1].</p>
+<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><pre><code class="lang-C++">struct A&#123;
+    int a;
+    char* b;
+&#125;;
+struct B&#123;
+    int a;
+    char b[0];
+&#125;
+</code></pre>
+<p>为了说明这个问题，我们定义一下几个结构体作为比较：</p>
+<pre><code class="lang-C++">struct A
+&#123;
+    int a;
+&#125;;
+struct B
+&#123;
+    int a;
+    char* b;
+&#125;;
+struct C
+&#123;
+    int a;
+    char b[0];
+&#125;;
+struct D
+&#123;
+    int a;
+    char b[1];
+&#125;;
+
+struct E
+&#123;
+    int a;
+    char b[10];
+&#125;;
+</code></pre>
+<pre><code class="lang-C++">cout &lt;&lt; sizeof(A) &lt;&lt; endl;
+cout &lt;&lt; sizeof(B) &lt;&lt; endl;
+cout &lt;&lt; sizeof(C) &lt;&lt; endl;
+cout &lt;&lt; sizeof(D) &lt;&lt; endl;
+cout &lt;&lt; sizeof(E) &lt;&lt; endl;
+</code></pre>
+<p>输出占用空间大小为</p>
+<blockquote>
+<p>4 8 4 8 16</p>
+</blockquote>
+<p>可以看到<code>struct A</code>大小为<code>int</code>大小 4字节，<code>struct B</code>由于包含了一个指针，在32位系统中，大小为 4字节，总共8字节。<code>strcut C</code>大小为4字节，明显<code>char[0]</code>没有分配内存。<code>struct D</code>大小由于内存对齐原因得到为8字节。<code>struct E</code>大小同样由于内存对齐原因得到为16字节。</p>
+<p>由此可以看到长度为0的数组没有分配内存。<br>为了更详细的说明内存分配情况，我们查看一下每个的地址.</p>
+<pre><code class="lang-C++">A a; B b; C c; D d; E e;
+cout &lt;&lt; &amp;a.a &lt;&lt; &#39;\t&#39; &lt;&lt; endl;
+cout &lt;&lt; &amp;b.a &lt;&lt; &#39;\t&#39; &lt;&lt; (int)&amp;b.b - (int)&amp;b.a &lt;&lt; &#39;\t&#39; &lt;&lt; &amp;b.b &lt;&lt; endl;
+cout &lt;&lt; &amp;c.a &lt;&lt; &#39;\t&#39; &lt;&lt; (int)&amp;c.b - (int)&amp;c.a &lt;&lt; &#39;\t&#39; &lt;&lt; &amp;c.b &lt;&lt; endl;
+cout &lt;&lt; &amp;d.a &lt;&lt; &#39;\t&#39; &lt;&lt; (int)&amp;d.b - (int)&amp;d.a &lt;&lt; &#39;\t&#39; &lt;&lt; &amp;d.b &lt;&lt; endl;
+cout &lt;&lt; &amp;e.a &lt;&lt; &#39;\t&#39; &lt;&lt; (int)&amp;e.b - (int)&amp;e.a &lt;&lt; &#39;\t&#39; &lt;&lt; &amp;e.b &lt;&lt; endl;
+</code></pre>
+<p>输出为:</p>
+<blockquote>
+<p>00AFFB4C<br>00AFFB3C        4       00AFFB40<br>00AFFB30        4       00AFFB34<br>00AFFB20        4       00AFFB24<br>00AFFB08        4       00AFFB0C</p>
+</blockquote>
+<p>可以看到每个<code>b</code>都指向了同一位置,<code>int a</code>后面一位的地址.<br>为了更清楚的描述,在中间插入一个<code>char c</code>可以看到有:</p>
+<pre><code class="lang-C++">struct A
+&#123;
+    int a;
+    char c;
+&#125;;
+struct B
+&#123;
+    int a;
+    char c;
+    char* b;
+&#125;;
+struct C
+&#123;
+    int a;
+    char c;
+    char b[0];
+&#125;;
+
+A a;
+B b;
+C c;
+cout &lt;&lt; &amp;a.a &lt;&lt; &#39;\t&#39; &lt;&lt; endl;
+cout &lt;&lt; &amp;b.a &lt;&lt; &#39;\t&#39; &lt;&lt; (int)&amp;b.b - (int)&amp;b.a &lt;&lt; &#39;\t&#39; &lt;&lt; &amp;b.b &lt;&lt; endl;
+cout &lt;&lt; &amp;c.a &lt;&lt; &#39;\t&#39; &lt;&lt; (int)&amp;c.b - (int)&amp;c.a &lt;&lt; &#39;\t&#39; &lt;&lt; &amp;c.b &lt;&lt; endl;
+</code></pre>
+<p>输出为:</p>
+<blockquote>
+<p>012FF9E8<br>012FF9D4        8       012FF9DC<br>012FF9C4        5       012FF9C9</p>
+</blockquote>
+<p>很明显可以得到结论,<code>char b[0]</code>不分配内存,但是可以获得结构体的末尾地址.</p>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/blog/2019/04/26/c++/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  构造函数
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/blog/2019/04/26/c++/C++%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8/">
+                C++ 初始化列表
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+	<div id="vcomments"></div>
+
+
+<script>
+	
+		// 评论
+		new Valine({
+			av: AV,
+			el: '#vcomments',
+			notify: false,
+			verify: false,
+			path: window.location.pathname,
+			appId: '',
+			appKey: '',
+			placeholder: '请输入评论',
+			avatar: 'retro',
+			recordIP: false
+		})
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">王二</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>
