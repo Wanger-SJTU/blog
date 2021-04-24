@@ -29,7 +29,7 @@
 		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
 			searchEngine = "https://www.google.com/search?q=";
 		}
-		var homeHost = "wujun234.github.io";
+		var homeHost = "wanger-sjtu.github.io";
 		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
 			homeHost = window.location.host;
 		}
@@ -738,6 +738,10 @@ var _hmt = _hmt || [];
 </h1>
 <div class="article-meta">
 	
+		<span>
+			阅读量:<span id="/blog/2018/09/27/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/CAM/" class="leancloud_visitors" data-flag-title="Learning Deep Features for Discriminative Localization"></span>
+		</span>
+	
 	<span>王二</span>
 	<span>2018-09-27 00:00:00</span>
 		<div id="article-categories">
@@ -824,19 +828,51 @@ M_c(x,y)=\sum_kw_k^cf_k(x,y)</script><p>从上式可以看出，$M<em>{c}(x,y)�
 			notify: false,
 			verify: false,
 			path: window.location.pathname,
-			appId: '',
-			appKey: '',
+			appId: '5PQlnuuLOrt9dJRqxghztqVb-gzGzoHsz',
+			appKey: 'V5LIjFblR0zzysVlR0lbmp0o',
 			placeholder: '请输入评论',
 			avatar: 'retro',
 			recordIP: false
 		})
 	
 	
+    // 显示次数
+		function showTime(Counter) {
+			var query = new AV.Query("Counter");
+			if($(".leancloud_visitors").length > 0){
+				var url = $(".leancloud_visitors").attr('id').trim();
+				// where field
+				query.equalTo("words", url);
+				// count
+				query.count().then(function (number) {
+					// There are number instances of MyClass where words equals url.
+					$(document.getElementById(url)).text(number?  number : '--');
+				}, function (error) {
+					// error is an instance of AVError.
+				});
+			}
+		}
+		// 追加pv
+		function addCount(Counter) {
+			var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
+			var Counter = AV.Object.extend("Counter");
+			var query = new Counter;
+			query.save({
+				words: url
+			}).then(function (object) {
+			})
+		}
+		$(function () {
+			var Counter = AV.Object.extend("Counter");
+			addCount(Counter);
+			showTime(Counter);
+		});
+	
 </script>
 	</div>
 	<div id="footer">
 	<p>
-	©2019-<span id="footerYear"></span> 
+	©2018-<span id="footerYear"></span> 
 	<a href="/">王二</a> 
 	
 	
