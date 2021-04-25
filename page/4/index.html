@@ -163,15 +163,6 @@ var _hmt = _hmt || [];
 							</ul>
 			
 							<ul>
-								<li class="file">
-									<a href="/blog/2019/04/26/c++/charinstruct/">
-										charinstruct
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
 								<li class="directory">
 									<a href="#" class="directory">
 										<i class="fa fa-plus-square-o"></i>
@@ -195,6 +186,15 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/blog/2019/04/26/c++/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">
 										构造函数
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/26/c++/%E6%9F%94%E6%80%A7%E6%95%B0%E7%BB%84/">
+										柔性数组
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -495,12 +495,81 @@ var _hmt = _hmt || [];
 									</a>
 									
 							<ul>
-								<li class="file">
-									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/">
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
 										mit6.s081
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										labs
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/labs/1%20util/">
+										1 util
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/labs/lab03/">
+										lab03
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/labs/lab04/">
+										lab04
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										课程笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/0%20tools/">
+										0 tools
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/lab03/">
+										lab03
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
 							</ul>
 			
 								</li>
@@ -772,6 +841,98 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
+			<a href="/blog/2019/03/11/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/training%20ImageNet%201%20hour/">
+				<h2 class="index-title">
+					training ImageNet 1 hour
+				</h2>
+				<div class="index-brief">
+					论文针对的是神经网络的训练技巧，在训练过程中如何应对大数据。在增大batchsize的同时，其他参数如何设置，才能使得训练模型鲁棒性更好，不至于准确度下降。论文首先给出了，一般情况下增大batch对于准确度的影响，可以看到一定程度以后，准确度是下降的。
+
+large batchsizelinear 
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-03-11</span>
+                    
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/blog/2018/10/23/python/2018-10-23-import%20cv2%20error/">
+				<h2 class="index-title">
+					2018-10-23-import cv2 error
+				</h2>
+				<div class="index-brief">
+					
+import cv2
+
+ImportError: dynamic module does not define module export function (PyInit_cv2)
+
+PROBLEM: The reason this was happening was that I had se
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-10-23</span>
+                    
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/blog/2018/10/11/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/show%20attend%20tell/">
+				<h2 class="index-title">
+					show attend tell
+				</h2>
+				<div class="index-brief">
+					模型结构
+流程大致如下：
+Encoder
+通过CNN的结构得到一个low level features $[a_0, \dots, a_L]$，这里得到的就是$L$个向量。
+Decoder : LSTM
+最终要得到的为$ [y_1,\dots, y_c]\quad y_i \in \mathcal{
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-10-11</span>
+                    
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/blog/2018/09/27/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/CAM/">
+				<h2 class="index-title">
+					CAM
+				</h2>
+				<div class="index-brief">
+					这个是周博磊16年的文章。文章通过实验证明，即使没有位置标注，CNN仍是可以得到一些位置信息，（文章中的显著性图）
+
+CNN提取的feature含有位置信息，尽管我们在训练的时候并没有标记位置信息；
+
+这些位置信息，可以转移到其他的认知任务当中
+
+
+
+文章的实验主要就是证明了，在CNN分类中，不同区
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-09-27</span>
+                    
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/blog/2018/09/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/instance%20norm/">
 				<h2 class="index-title">
 					instance norm
@@ -903,110 +1064,6 @@ Input: &quot;cbbd&quot
 			</a>
                 <div class="article-meta">
 				    <span>2018-09-09</span>
-                    
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/blog/2018/09/07/leetcode/53.%20Maximum%20Subarray/">
-				<h2 class="index-title">
-					53. Maximum Subarray
-				</h2>
-				<div class="index-brief">
-					
-对于给定序列，得到最大和的子序列
-Example:
-Input: [-2,1,-3,4,-1,2,1,-5,4],
-Output: 6
-Explanation: [4,-1,2,1] has the largest sum = 6.
-
-brute force
-
-遍历所有的可能答案，得到最大子序列和
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-09-07</span>
-                    
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/blog/2018/09/06/leetcode/122.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20II/">
-				<h2 class="index-title">
-					122. Best Time to Buy and Sell Stock II
-				</h2>
-				<div class="index-brief">
-					
-与121不同的在于，121只能操作一次，而这个是可以操作任意次。
-Input: [7,1,5,3,6,4]
-Output: 7
-Explanation: Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-1 = 4
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-09-06</span>
-                    
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/blog/2018/09/05/leetcode/70.Climbing%20Stairs/">
-				<h2 class="index-title">
-					70.Climbing Stairs
-				</h2>
-				<div class="index-brief">
-					描述
-
-n阶楼梯，每次一步或者两步，一共有多少种方法
-
-Solutions
-brute_force
-
-$f(n)=f(n-1)+f(n-2)$
-显然有，到第n阶楼梯有两种方法，从n-1过去，和n-2过去。即到n阶的方法等于这两种方法的和
-
-def brute_force(n):
-    if n =
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-09-05</span>
-                    
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/blog/2018/09/01/python/2018-09-01-python%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-				<h2 class="index-title">
-					2018-09-01-python多线程
-				</h2>
-				<div class="index-brief">
-					介绍
-more 
-single threading
-import time
-
-def calc_square(numbers):
-    print(&quot;caculating square numbers&quot;)
-    for n in numbers:
-        time.s
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-09-01</span>
                     
                             
                     

@@ -163,15 +163,6 @@ var _hmt = _hmt || [];
 							</ul>
 			
 							<ul>
-								<li class="file">
-									<a href="/blog/2019/04/26/c++/charinstruct/">
-										charinstruct
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
 								<li class="directory">
 									<a href="#" class="directory">
 										<i class="fa fa-plus-square-o"></i>
@@ -195,6 +186,15 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/blog/2019/04/26/c++/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">
 										构造函数
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/26/c++/%E6%9F%94%E6%80%A7%E6%95%B0%E7%BB%84/">
+										柔性数组
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -495,12 +495,81 @@ var _hmt = _hmt || [];
 									</a>
 									
 							<ul>
-								<li class="file">
-									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/">
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
 										mit6.s081
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										labs
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/labs/1%20util/">
+										1 util
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/labs/lab03/">
+										lab03
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/labs/lab04/">
+										lab04
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										课程笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/0%20tools/">
+										0 tools
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/lab03/">
+										lab03
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
 							</ul>
 			
 								</li>
@@ -772,41 +841,19 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
-			<a href="/blog/2019/04/02/leetcode/Roman%20to%20Integer/">
+			<a href="/blog/2019/04/02/leetcode/max_prefix/">
 				<h2 class="index-title">
-					Roman to Integer
+					max_prefix
 				</h2>
 				<div class="index-brief">
-					罗马数字包含以下七种字符： I， V， X， L，C，D 和 M。
+					编写一个函数来查找字符串数组中的最长公共前缀。
+如果不存在公共前缀，返回空字符串 “”。
+示例 1:
 
+输入: [“flower”,”flow”,”flight”]输出: “fl”示例 2:
+输入: [“dog”,”racecar”,”car”]输出: “”解释: 输入不存在公共前缀。
 
-
-
-字符
-I
-V
-X
-L
-C
-D
-M
-
-
-
-
-数值
-1
-5
-10
-50
-100
-500
-1000
-
-
-
-
-例如， 罗马数字 2 写做 II ，即为两个并列的 1。12 写做 XII ，即为 X + II 。 27 写做  XXV
+class
 					...
 				</div>
 			</a>
@@ -819,23 +866,20 @@ M
 		</div>	
 	
 		<div class="index-li">
-			<a href="/blog/2019/04/02/leetcode/baidu0402/">
+			<a href="/blog/2019/04/02/leetcode/container-with-most-water/">
 				<h2 class="index-title">
-					baidu0402
+					container-with-most-water
 				</h2>
 				<div class="index-brief">
 					
-
-描述给定一个仅由小写字母组成的长度不超过1e6的字符串，将首字母移动到末尾并记录所得的字符串，不断重复操作，虽然记录了无限个字符串，但其中不同的字符串数目是有限的，问不同的字符串有多少个？
-
+给定一组非负整数，$[a_1,a_2,…,a_n]$, 其中$[i,a_i]$代表了一个坐标。位置$i$处，有高为$a_i$的柱子。 两根柱子连同x轴，构成了一个水池，求可以盛最大体积水的容器坐标。 注:柱子不可倾斜，n至少为2
 
 
 
-输入：abab输出2
+TODO 解释
 
-def getNext(s):
-    Next = [-1]
-    j
+class Solution:
+    de
 					...
 				</div>
 			</a>

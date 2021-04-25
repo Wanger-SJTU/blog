@@ -9,7 +9,7 @@
 	
 	<title>
 	
-		mit6.s081 | 
+		lab03 | 
 	 
 	Wang Er
 	</title>
@@ -165,15 +165,6 @@ var _hmt = _hmt || [];
 							</ul>
 			
 							<ul>
-								<li class="file">
-									<a href="/blog/2019/04/26/c++/charinstruct/">
-										charinstruct
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
 								<li class="directory">
 									<a href="#" class="directory">
 										<i class="fa fa-plus-square-o"></i>
@@ -197,6 +188,15 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/blog/2019/04/26/c++/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">
 										构造函数
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2019/04/26/c++/%E6%9F%94%E6%80%A7%E6%95%B0%E7%BB%84/">
+										柔性数组
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -497,12 +497,81 @@ var _hmt = _hmt || [];
 									</a>
 									
 							<ul>
-								<li class="file active">
-									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/">
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
 										mit6.s081
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										labs
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/labs/1%20util/">
+										1 util
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/labs/lab03/">
+										lab03
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/labs/lab04/">
+										lab04
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										课程笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/0%20tools/">
+										0 tools
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/lab03/">
+										lab03
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
 							</ul>
 			
 								</li>
@@ -773,16 +842,16 @@ var _hmt = _hmt || [];
 	<div id="content">
 		<h1 id="article-title">
 
-	mit6.s081
+	lab03
 </h1>
 <div class="article-meta">
 	
 		<span>
-			阅读量:<span id="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/" class="leancloud_visitors" data-flag-title=""></span>
+			阅读量:<span id="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/labs/lab03/" class="leancloud_visitors" data-flag-title=""></span>
 		</span>
 	
 	<span>王二</span>
-	<span>2021-04-25 16:28:58</span>
+	<span>2021-04-25 17:39:19</span>
 		<div id="article-categories">
     
 		<span>Categories：</span>
@@ -798,27 +867,7 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<blockquote>
-<p>本章内容为6.S081课程，工具环境准备操作。由于笔者实验主要在ubuntu 20.04上实现的，下面的操作暂时只介绍ubuntu环境下的设置流程。</p>
-</blockquote>
-<p>在本课程中，需要RISC-V版本的开发工具：QEMU5.1、GDB8.3、GCC和Binutils。</p>
-<h2 id="通过APT-安装（Debian-Ubuntu）"><a href="#通过APT-安装（Debian-Ubuntu）" class="headerlink" title="通过APT 安装（Debian/Ubuntu）"></a>通过APT 安装（Debian/Ubuntu）</h2><p>通过以下命令安装</p>
-<pre><code class="lang-bash">sudo apt-get install git build-essential gdb-multiarch qemu-system-misc gcc-riscv64-linux-gnu binutils-riscv64-linux-gnu
-</code></pre>
-<p>据说低版本的qemu有坑，官方建议安装版本为5.1。这里选择通过源码安装。</p>
-<pre><code class="lang-bash">git clone https://github.com/mit-pdos/6.828-qemu.git qemu
-
-sudo apt install python libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev
-
-./configure --disable-kvm --disable-werror --target-list=&quot;i386-softmmu x86_64-softmmu&quot;
-</code></pre>
-<p>执行make报错</p>
-<pre><code>/usr/bin/ld: qga/commands-posix.o: in function `dev_major_minor&#39;:
-mit/qemu/qga/commands-posix.c:633: undefined reference to `major&#39;
-/usr/bin/ld: mit/qemu/qga/commands-posix.c:634: undefined reference to `minor&#39;
-</code></pre><p>解决方法是在<code>qemu/qga/commands-posix.c</code>开始加上</p>
-<h1 id="include"><a href="#include" class="headerlink" title="include "></a>include <sys/sysmacros.h></h1><p>make &amp;&amp; make install</p>
-
+	
 </div>
 
 
@@ -828,8 +877,8 @@ mit/qemu/qga/commands-posix.c:633: undefined reference to `major&#39;
         </div>
         <div class="item right">
             
-              <a href="/blog/2021/04/25/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95-%E5%9F%BA%E6%9C%AC%E5%88%B0kaiming/">
-                初始化方法-基本到kaiming
+              <a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/lab03/">
+                lab03
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </a>
             
