@@ -7,11 +7,11 @@
 ### 页表
 为了保证各个进程的独立性，相互之间的内存独立性，操作系统引入了页表（page table）。之后，CPU执行命令时，读取的地址就是一个虚拟地址，由内存管理单元（MMU，Memory Management Unit）负责将其翻译为一个虚拟地址。
 
-![](/images/mit6.s081/mmu.png)
+![](/images/mit6s081/mmu.png)
 
 为了支持MMU的翻译工作，就需要一个映射表来记录虚拟地址到真实地址的映射关系。这个表单完成了VA->PA的映射关系。实际上这个表单是存在内存中的，MMU负责从内存中读取这个表单。对每个地址创建一条映射表单很不划算，这会导致大量的内存占用，实际中是为每个page创建一条条目。为了能够找到对应的地址，虚拟地址的结构分为两部分，
 
-![](/images/mit6.s081/va-pa.png)
+![](/images/mit6s081/va-pa.png)
 
 而RISC-V中，一个page是4KB，也就是 4096 Bytes。这个大小非常常见，几乎所有的处理器都使用4KB大小的 page或者支持4KB大小的page。
 
@@ -24,7 +24,7 @@
 
 实际上，硬件并不是按照这里的方式来存储 page table。从概念上来说，你可以认为page table是从0到2^27，但是实际上并不是这样。实际中，page table是一个多级的结构。下图是一个真正的RISC-V page table结构和硬件实现。
 
-![](/images/mit6.s081/multi-page.png)
+![](/images/mit6s081/multi-page.png)
 
 查找过程为：
 
