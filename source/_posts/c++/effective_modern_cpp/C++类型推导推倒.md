@@ -46,7 +46,6 @@ void g(const T& param) {}  // param is now a ref-to-const
 int x = 27;         // x is an int
 const int cx = x;   // cx is a const int
 const int& rx = x;  // rx is a reference to x as a const int
-int 
 ```
 
 | 调用方式  | expr type       | T type        | ParaType        | 备注                 |
