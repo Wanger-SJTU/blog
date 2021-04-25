@@ -9,7 +9,7 @@
 	
 	<title>
 	
-		lab03 | 
+		0 tools | 
 	 
 	Wang Er
 	</title>
@@ -500,7 +500,7 @@ var _hmt = _hmt || [];
 								<li class="directory">
 									<a href="#" class="directory">
 										<i class="fa fa-plus-square-o"></i>
-										mit6.s081
+										mit6s081
 									</a>
 									
 							<ul>
@@ -512,7 +512,7 @@ var _hmt = _hmt || [];
 									
 							<ul>
 								<li class="file">
-									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/labs/1%20util/">
+									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6s081/labs/1%20util/">
 										1 util
 									</a>
 								</li>
@@ -520,8 +520,8 @@ var _hmt = _hmt || [];
 							</ul>
 			
 							<ul>
-								<li class="file active">
-									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/labs/lab03/">
+								<li class="file">
+									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6s081/labs/lab03/">
 										lab03
 									</a>
 								</li>
@@ -530,7 +530,7 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
-									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/labs/lab04/">
+									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6s081/labs/lab04/">
 										lab04
 									</a>
 								</li>
@@ -549,8 +549,8 @@ var _hmt = _hmt || [];
 									</a>
 									
 							<ul>
-								<li class="file">
-									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/0%20tools/">
+								<li class="file active">
+									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6s081/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/0%20tools/">
 										0 tools
 									</a>
 								</li>
@@ -559,7 +559,7 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
-									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/lab03/">
+									<a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6s081/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/lab03/">
 										lab03
 									</a>
 								</li>
@@ -842,16 +842,16 @@ var _hmt = _hmt || [];
 	<div id="content">
 		<h1 id="article-title">
 
-	lab03
+	0 tools
 </h1>
 <div class="article-meta">
 	
 		<span>
-			阅读量:<span id="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/labs/lab03/" class="leancloud_visitors" data-flag-title=""></span>
+			阅读量:<span id="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6s081/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/0%20tools/" class="leancloud_visitors" data-flag-title=""></span>
 		</span>
 	
 	<span>王二</span>
-	<span>2021-04-25 17:43:03</span>
+	<span>2021-04-25 17:46:03</span>
 		<div id="article-categories">
     
 		<span>Categories：</span>
@@ -867,18 +867,43 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	
+	<blockquote>
+<p>本章内容为6.S081课程，工具环境准备操作。由于笔者实验主要在ubuntu 20.04上实现的，下面的操作暂时只介绍ubuntu环境下的设置流程。</p>
+</blockquote>
+<p>在本课程中，需要RISC-V版本的开发工具：QEMU5.1、GDB8.3、GCC和Binutils。</p>
+<h2 id="通过APT-安装（Debian-Ubuntu）"><a href="#通过APT-安装（Debian-Ubuntu）" class="headerlink" title="通过APT 安装（Debian/Ubuntu）"></a>通过APT 安装（Debian/Ubuntu）</h2><p>通过以下命令安装</p>
+<pre><code class="lang-bash">sudo apt-get install git build-essential gdb-multiarch qemu-system-misc gcc-riscv64-linux-gnu binutils-riscv64-linux-gnu
+</code></pre>
+<p>据说低版本的qemu有坑，官方建议安装版本为5.1。这里选择通过源码安装。</p>
+<pre><code class="lang-bash">git clone https://github.com/mit-pdos/6.828-qemu.git qemu
+
+sudo apt install python libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev
+
+./configure --disable-kvm --disable-werror --target-list=&quot;i386-softmmu x86_64-softmmu&quot;
+</code></pre>
+<p>执行make报错</p>
+<pre><code>/usr/bin/ld: qga/commands-posix.o: in function `dev_major_minor&#39;:
+mit/qemu/qga/commands-posix.c:633: undefined reference to `major&#39;
+/usr/bin/ld: mit/qemu/qga/commands-posix.c:634: undefined reference to `minor&#39;
+</code></pre><p>解决方法是在<code>qemu/qga/commands-posix.c</code>开始加上</p>
+<h1 id="include"><a href="#include" class="headerlink" title="include "></a>include <sys/sysmacros.h></h1><p>make &amp;&amp; make install</p>
+
 </div>
 
 
     <div class="post-guide">
         <div class="item left">
             
+              <a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6s081/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/lab03/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  lab03
+              </a>
+            
         </div>
         <div class="item right">
             
-              <a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6.s081/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/lab03/">
-                lab03
+              <a href="/blog/2021/04/25/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6s081/labs/1%20util/">
+                1 util
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </a>
             
