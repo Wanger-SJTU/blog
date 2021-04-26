@@ -579,8 +579,8 @@ var _hmt = _hmt || [];
 									
 							<ul>
 								<li class="file">
-									<a href="/blog/2018/04/12/%E5%85%B6%E4%BB%96/2018-04-12-v2ray/">
-										2018-04-12-v2ray
+									<a href="/blog/2018/04/12/%E5%85%B6%E4%BB%96/v2ray/">
+										v2ray
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -644,6 +644,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/blog/2021/04/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/DL-base/">
+										DL-base
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/blog/2018/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/DML%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
 										DML阅读笔记
 									</a>
@@ -664,15 +673,6 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/blog/2018/09/10/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/ML_DL%20%E5%88%86%E5%B8%83%E5%BA%A6%E9%87%8F/">
 										ML_DL 分布度量
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/blog/2019/08/11/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/Multi-path%20Learning%20for%20Object%20Pose%20Estimation%20Across%20Domains/">
-										Multi-path Learning for Object Pose Estimation Across Domains
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -725,7 +725,7 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
-									<a href="/blog/2018/07/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/activation%20normalization%20layer/">
+									<a href="/blog/2021/04/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/activation%20normalization%20layer/">
 										activation normalization layer
 									</a>
 								</li>
@@ -907,7 +907,7 @@ e_{ti}=f_{\text{att}}(\textbf a_i,\textbf h_{t-1})</script><script type="math/te
 \text{E}_{p(s_t|a)}[\hat{z}_t]=\sum_{i=1}^{L}\alpha_{t,i}a_i</script><p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/show-attend-tell/2.png" alt="soft"></p>
 <p><strong>hard attention</strong></p>
 <p>在soft attention中，我们采用的是加权求和的方式得到$z_t$的。前面我们得到的$\sum \alpha_i=1$，因此可以把$\alpha_i$解释为我们注意到第$i$个特征区域的可能性（置信度）。所以在hard attention中，我们是把$\alpha_i$看作从$x_i$中的采样率.</p>
-<p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/show-attend-tell/3.jpg" alt></p>
+<p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/show-attend-tell/3.jpg" alt=""></p>
 <p>hard attention 使用采样的方法替代了确定性的计算方法。反向传播过程中使用MC（蒙特卡洛）方法采样平均我们的计算梯度。</p>
 <blockquote>
 <p>Soft attention is more popular because the backpropagation seems more effective.</p>

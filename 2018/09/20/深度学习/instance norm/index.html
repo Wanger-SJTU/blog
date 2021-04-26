@@ -579,8 +579,8 @@ var _hmt = _hmt || [];
 									
 							<ul>
 								<li class="file">
-									<a href="/blog/2018/04/12/%E5%85%B6%E4%BB%96/2018-04-12-v2ray/">
-										2018-04-12-v2ray
+									<a href="/blog/2018/04/12/%E5%85%B6%E4%BB%96/v2ray/">
+										v2ray
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -644,6 +644,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/blog/2021/04/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/DL-base/">
+										DL-base
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/blog/2018/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/DML%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
 										DML阅读笔记
 									</a>
@@ -664,15 +673,6 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/blog/2018/09/10/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/ML_DL%20%E5%88%86%E5%B8%83%E5%BA%A6%E9%87%8F/">
 										ML_DL 分布度量
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/blog/2019/08/11/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/Multi-path%20Learning%20for%20Object%20Pose%20Estimation%20Across%20Domains/">
-										Multi-path Learning for Object Pose Estimation Across Domains
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -725,7 +725,7 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
-									<a href="/blog/2018/07/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/activation%20normalization%20layer/">
+									<a href="/blog/2021/04/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/activation%20normalization%20layer/">
 										activation normalization layer
 									</a>
 								</li>
@@ -868,7 +868,7 @@ var _hmt = _hmt || [];
 
 <div id="article-content">
 	<p>与Batch Norm加快计算收敛不同， IN是在[1]中提出的，目的是提高style transfer的表现。</p>
-<p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/instance-norm/1.jpg" alt></p>
+<p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/instance-norm/1.jpg" alt=""></p>
 <p>计算如下：</p>
 <script type="math/tex; mode=display">
 IN(x)=\gamma (\frac{x-\mu(x)}{\sigma(x)}+\beta)</script><p>其中</p>
@@ -877,7 +877,7 @@ IN(x)=\gamma (\frac{x-\mu(x)}{\sigma(x)}+\beta)</script><p>其中</p>
 \sigma_{nc}(x)=\sqrt{\frac{1}{HW}\sum\sum(x_{nchw}-\mu_{nc}(x))^2+\epsilon}</script><p>可以看到，IN是对每个channel的计算。（感觉上跟layer norm很像。）</p>
 <p><strong>解释</strong></p>
 <p>关于为什么IN在style transfer和Image generation的任务上表现更好，有很多解释。这里只介绍[2]中的解释，因为实验比较充分。</p>
-<p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/instance-norm/2.jpg" alt></p>
+<p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/instance-norm/2.jpg" alt=""></p>
 <p>IN作者认为IN有效的原因在于IN是对图像的对比度进行了Norm，所以效果好，但是[2]的实验表明，并非如此，如图b所示，训练图像事先对比度归一化以后，IN的表现仍然好很多。但是在均统一为一个风格以后（图c），两者差别就很小了。</p>
 <ul>
 <li>IN 可以认为，是一种风格的norm。即可以通过IN将图像在feature space 转化到另一个style。</li>

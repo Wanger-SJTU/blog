@@ -579,8 +579,8 @@ var _hmt = _hmt || [];
 									
 							<ul>
 								<li class="file">
-									<a href="/blog/2018/04/12/%E5%85%B6%E4%BB%96/2018-04-12-v2ray/">
-										2018-04-12-v2ray
+									<a href="/blog/2018/04/12/%E5%85%B6%E4%BB%96/v2ray/">
+										v2ray
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -644,6 +644,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/blog/2021/04/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/DL-base/">
+										DL-base
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/blog/2018/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/DML%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
 										DML阅读笔记
 									</a>
@@ -664,15 +673,6 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/blog/2018/09/10/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/ML_DL%20%E5%88%86%E5%B8%83%E5%BA%A6%E9%87%8F/">
 										ML_DL 分布度量
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/blog/2019/08/11/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/Multi-path%20Learning%20for%20Object%20Pose%20Estimation%20Across%20Domains/">
-										Multi-path Learning for Object Pose Estimation Across Domains
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -725,7 +725,7 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
-									<a href="/blog/2018/07/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/activation%20normalization%20layer/">
+									<a href="/blog/2021/04/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/activation%20normalization%20layer/">
 										activation normalization layer
 									</a>
 								</li>
@@ -884,7 +884,7 @@ var _hmt = _hmt || [];
 <p>这个结构与FCN不同的是，它<strong>通过pyramid的池化层考虑了不同尺寸的全局信息</strong>。而在FCN中只考虑了某一个池化层，如FCN-16s 只考虑pool4。 </p>
 </li>
 </ul>
-<p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/PSP-Network/2.jpg" alt></p>
+<p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/PSP-Network/2.jpg" alt=""></p>
 <p><strong>辅助loss</strong></p>
 <p>文中还提到了为了训练使用了一个辅助的loss，<strong>网络越深性能越好，但是也越难训练.</strong>(ResNet solves this problem with skip connection in each block”。作者在网络中间引入了一个额外的loss函数，这个loss函数和网络输出层的loss pass through all previous layers，图示如下 </p>
 <p><img src="https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/_asserts/PSP-Network/3.jpg" alt="loss"></p>

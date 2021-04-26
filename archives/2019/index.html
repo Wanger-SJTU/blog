@@ -577,8 +577,8 @@ var _hmt = _hmt || [];
 									
 							<ul>
 								<li class="file">
-									<a href="/blog/2018/04/12/%E5%85%B6%E4%BB%96/2018-04-12-v2ray/">
-										2018-04-12-v2ray
+									<a href="/blog/2018/04/12/%E5%85%B6%E4%BB%96/v2ray/">
+										v2ray
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -642,6 +642,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/blog/2021/04/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/DL-base/">
+										DL-base
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/blog/2018/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/DML%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
 										DML阅读笔记
 									</a>
@@ -662,15 +671,6 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/blog/2018/09/10/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/ML_DL%20%E5%88%86%E5%B8%83%E5%BA%A6%E9%87%8F/">
 										ML_DL 分布度量
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/blog/2019/08/11/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/Multi-path%20Learning%20for%20Object%20Pose%20Estimation%20Across%20Domains/">
-										Multi-path Learning for Object Pose Estimation Across Domains
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -723,7 +723,7 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
-									<a href="/blog/2018/07/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/activation%20normalization%20layer/">
+									<a href="/blog/2021/04/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/activation%20normalization%20layer/">
 										activation normalization layer
 									</a>
 								</li>
@@ -833,25 +833,6 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
-			<a href="/blog/2019/08/11/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/Multi-path%20Learning%20for%20Object%20Pose%20Estimation%20Across%20Domains/">
-				<h2 class="index-title">
-					Multi-path Learning for Object Pose Estimation Across Domains
-				</h2>
-				<div class="index-brief">
-					Multi-path Learning for Object Pose Estimation Across Domains论文框架
-论文的模型思路来自于Augmented Autoencoder (AAE) 。通过训练一个Autoencoder，来学习物体6D姿态的潜在信息。进而利用潜在编码进行姿态
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-08-11</span>
-                    
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
 			<a href="/blog/2019/07/23/leetcode/%E9%93%BE%E8%A1%A8%E5%8F%8D%E8%BD%AC/">
 				<h2 class="index-title">
 					链表反转
@@ -893,19 +874,18 @@ ST的结构如上图所示,每一个ST模块由Localisation net, Grid gener
 		</div>	
 	
 		<div class="index-li">
-			<a href="/blog/2019/04/26/c++/%E6%9F%94%E6%80%A7%E6%95%B0%E7%BB%84/">
+			<a href="/blog/2019/04/26/c++/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">
 				<h2 class="index-title">
-					柔性数组
+					构造函数
 				</h2>
 				<div class="index-brief">
-					这个问题是阿里的一个面试题。当时没有很清楚，答得很差，特地实验看一下运行结果。
+					如显示不正常点击查看markdown
+调用拷贝构造函数的几种情况
+当类中成员有指针变量、类中有动态内存分配时常常需要用户自己定义拷贝构造函数。
 
-在结构体中定义了一个char*指针，与定义一个零元素的char数组有什么区别？
+在什么情况下系统会调用拷贝构造函数：
 
-作用常用来构成缓冲区。比起指针，用空数组有这样的优势：
-
-不需要初始化，数组名直接就是所在的偏移；
-不占任何空间，指针需要占用int长度
+（1）用类的一个对象去初始化另一个对象时（2）当函数的形参是类的对象时（也就是值传递时），如果是引用传递则不会调用
 					...
 				</div>
 			</a>
@@ -940,18 +920,19 @@ ST的结构如上图所示,每一个ST模块由Localisation net, Grid gener
 		</div>	
 	
 		<div class="index-li">
-			<a href="/blog/2019/04/26/c++/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">
+			<a href="/blog/2019/04/26/c++/%E6%9F%94%E6%80%A7%E6%95%B0%E7%BB%84/">
 				<h2 class="index-title">
-					构造函数
+					柔性数组
 				</h2>
 				<div class="index-brief">
-					如显示不正常点击查看markdown
-调用拷贝构造函数的几种情况
-当类中成员有指针变量、类中有动态内存分配时常常需要用户自己定义拷贝构造函数。
+					这个问题是阿里的一个面试题。当时没有很清楚，答得很差，特地实验看一下运行结果。
 
-在什么情况下系统会调用拷贝构造函数：
+在结构体中定义了一个char*指针，与定义一个零元素的char数组有什么区别？
 
-（1）用类的一个对象去初始化另一个对象时（2）当函数的形参是类的对象时（也就是值传递时），如果是引用传递则不会调用
+作用常用来构成缓冲区。比起指针，用空数组有这样的优势：
+
+不需要初始化，数组名直接就是所在的偏移；
+不占任何空间，指针需要占用int长度
 					...
 				</div>
 			</a>
@@ -1011,6 +992,33 @@ Explanat
 		</div>	
 	
 		<div class="index-li">
+			<a href="/blog/2019/04/03/c++/C++%20obj/">
+				<h2 class="index-title">
+					C++ obj
+				</h2>
+				<div class="index-brief">
+					首先看一下代码,判断代码的输出是什么
+class MyClass
+&#123;
+public:
+    int a;
+    int b;
+    MyClass(int tmp1 = 0, int tmp2 = 0)
+    &#123;
+        a = tmp1;
+        b =
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-04-03</span>
+                    
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/blog/2019/04/03/leetcode/LCS/">
 				<h2 class="index-title">
 					LCS
@@ -1035,26 +1043,24 @@ Explanat
 		</div>	
 	
 		<div class="index-li">
-			<a href="/blog/2019/04/03/c++/C++%20obj/">
+			<a href="/blog/2019/04/02/leetcode/max_prefix/">
 				<h2 class="index-title">
-					C++ obj
+					max_prefix
 				</h2>
 				<div class="index-brief">
-					首先看一下代码,判断代码的输出是什么
-class MyClass
-&#123;
-public:
-    int a;
-    int b;
-    MyClass(int tmp1 = 0, int tmp2 = 0)
-    &#123;
-        a = tmp1;
-        b =
+					编写一个函数来查找字符串数组中的最长公共前缀。
+如果不存在公共前缀，返回空字符串 “”。
+示例 1:
+
+输入: [“flower”,”flow”,”flight”]输出: “fl”示例 2:
+输入: [“dog”,”racecar”,”car”]输出: “”解释: 输入不存在公共前缀。
+
+class
 					...
 				</div>
 			</a>
                 <div class="article-meta">
-				    <span>2019-04-03</span>
+				    <span>2019-04-02</span>
                     
                             
                     
