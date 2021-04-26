@@ -35,5 +35,5 @@ siteStartYear: 2018
 searchEngine: https://www.google.com/search?q=
 homeHost: wanger-sjtu.github.io
 
-tags: true
-categories: true
+tags: false
+categories: false
