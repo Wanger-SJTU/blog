@@ -833,112 +833,12 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
-			<a href="/blog/2021/04/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/DL-base/">
-				<h2 class="index-title">
-					DL-base
-				</h2>
-				<div class="index-brief">
-					BN及其变体BN解决的问题：
-
-Internal Covariate Shift
-
-Internal Covariate Shift 与 Covariate Shift
-是对层与层之间数值偏移的描述，batchnorm对数值层面做了高斯均衡化，而后者是迁移学习中解决原空间和目标空间边缘分布不一致的一
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-04-26</span>
-                    
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
 			<a href="/blog/2021/04/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/activation%20normalization%20layer/">
 				<h2 class="index-title">
 					activation normalization layer
 				</h2>
 				<div class="index-brief">
 					
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-04-26</span>
-                    
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/blog/2021/04/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95-%E5%9F%BA%E6%9C%AC%E5%88%B0kaiming/">
-				<h2 class="index-title">
-					初始化方法-基本到kaiming
-				</h2>
-				<div class="index-brief">
-					为什么需要初始化初始化的原因，
-
-防止每一层的输出太大或者太小，导致梯度反向传播过程中，梯度爆炸或者梯度消失。
-不能采用统一值得原因，因为统一值得初始化会使得每一层网络在不同通道学到得特征相同。
-
-上述原因都会导致，网络模型不能收敛。
-简单例子得说明假如我们有一个输入x ，定义为
-&gt;&gt;&
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-04-26</span>
-                    
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/blog/2021/04/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/normalization%20layer/">
-				<h2 class="index-title">
-					normalization layer
-				</h2>
-				<div class="index-brief">
-					
-Batch norm 介绍  BN
-IN介绍IN
-
-Batch-Renormalization
-问题
-batch norm原作者对其的优化，该方法保证了train和inference阶段的等效性，解决了非独立同分布和小minibatch的问题
-
-算法
- 
-r和d首先通过minibatch计算出，但
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-04-26</span>
-                    
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/blog/2021/04/26/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6s081/labs/1%20util/">
-				<h2 class="index-title">
-					1 util
-				</h2>
-				<div class="index-brief">
-					本章实验的主要目的是熟悉 xv6 和 system call。
-启动 xv6本地计算机完成这个任务的话，需要下载xv6的代码。
-git clone git://g.csail.mit.edu/xv6-labs-2020
-cd xv6-labs-2020
-git checkout util
-
-xv6-
 					...
 				</div>
 			</a>
@@ -1010,12 +910,112 @@ xv6-
 		</div>	
 	
 		<div class="index-li">
+			<a href="/blog/2021/04/26/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6s081/labs/1%20util/">
+				<h2 class="index-title">
+					1 util
+				</h2>
+				<div class="index-brief">
+					本章实验的主要目的是熟悉 xv6 和 system call。
+启动 xv6本地计算机完成这个任务的话，需要下载xv6的代码。
+git clone git://g.csail.mit.edu/xv6-labs-2020
+cd xv6-labs-2020
+git checkout util
+
+xv6-
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-04-26</span>
+                    
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/blog/2021/04/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95-%E5%9F%BA%E6%9C%AC%E5%88%B0kaiming/">
+				<h2 class="index-title">
+					初始化方法-基本到kaiming
+				</h2>
+				<div class="index-brief">
+					为什么需要初始化初始化的原因，
+
+防止每一层的输出太大或者太小，导致梯度反向传播过程中，梯度爆炸或者梯度消失。
+不能采用统一值得原因，因为统一值得初始化会使得每一层网络在不同通道学到得特征相同。
+
+上述原因都会导致，网络模型不能收敛。
+简单例子得说明假如我们有一个输入x ，定义为
+&gt;&gt;&
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-04-26</span>
+                    
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/blog/2021/04/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/normalization%20layer/">
+				<h2 class="index-title">
+					normalization layer
+				</h2>
+				<div class="index-brief">
+					
+Batch norm 介绍  BN
+IN介绍IN
+
+Batch-Renormalization
+问题
+batch norm原作者对其的优化，该方法保证了train和inference阶段的等效性，解决了非独立同分布和小minibatch的问题
+
+算法
+ 
+r和d首先通过minibatch计算出，但
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-04-26</span>
+                    
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/blog/2021/04/26/%E5%85%AC%E5%BC%80%E8%AF%BE/mit6s081/labs/lab03/">
 				<h2 class="index-title">
 					lab03
 				</h2>
 				<div class="index-brief">
 					
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-04-26</span>
+                    
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/blog/2021/04/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/DL-base/">
+				<h2 class="index-title">
+					DL-base
+				</h2>
+				<div class="index-brief">
+					BN及其变体BN解决的问题：
+
+Internal Covariate Shift
+
+Internal Covariate Shift 与 Covariate Shift
+是对层与层之间数值偏移的描述，batchnorm对数值层面做了高斯均衡化，而后者是迁移学习中解决原空间和目标空间边缘分布不一致的一
 					...
 				</div>
 			</a>
