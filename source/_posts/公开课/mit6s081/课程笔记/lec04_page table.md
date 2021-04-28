@@ -69,6 +69,13 @@ Frans教授：我们不会加上虚拟地址中的offset，这里只是使用了
  试想一下，如果每次读取，都需要进行这样的多级页表转换，CPU需要一直等待MMU，带来的时间成本比较大。如果把上一次读取的内容缓存下来，避免重复读取DDR内存，可以大大降低等待时间。这就是TLB的作用。
 
 
+## kernel page table
 
-- {% post_link 公开课/mit6s081/labs/lab03_pgtbl lab03_页表 %}
+下面介绍一下，页表是如何工作的
+
+
+## linux的多级页表
+
+
+- {% post_link 公开课/mit6s081/labs/lab03_pgtbl lab03_页表实验 %}
 
