@@ -6,19 +6,16 @@ cache: npm
 branches:
   only:
   - master
-# 配置环境
 before_install:
-  # 替换为刚才生成的解密信息
-  - openssl aes-256-cbc -K $encrypted_2d8c63ef40a5_key -iv $encrypted_2d8c63ef40a5_iv in id_rsa.enc -out  ~/.ssh/id_rsa -d
-  # 改变文件权限
-  - chmod 600 ~/.ssh/id_rsa 
-  # 配置 ssh
-  - eval $(ssh-agent)
-  - ssh-add ~/.ssh/id_rsa
-  - cp .travis/ssh_config ~/.ssh/config
-  # # 配置 git 替换为自己的信息
-  # - git config --global user.name 'acwong'
-  # - git config --global user.email acwong00@gmail.com
+- openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv
+  -in id_rsa.enc -out id_rsa -d
+- openssl aes-256-cbc -K $encrypted_2d8c63ef40a5_key -iv $encrypted_2d8c63ef40a5_iv
+  -in id_rsa.enc -out ../id_rsa -d
+- chmod 600 ~/.ssh/id_rsa 
+# 配置 ssh
+- eval $(ssh-agent)
+- ssh-add ~/.ssh/id_rsa
+- cp .travis/ssh_config ~/.ssh/config
 
 script:
 - hexo generate
@@ -35,6 +32,3 @@ deploy:
   on:
     branch: master
   local-dir: public
-before_install:
-- openssl aes-256-cbc -K $encrypted_2d8c63ef40a5_key -iv $encrypted_2d8c63ef40a5_iv
-  -in id_rsa.enc -out ../id_rsa -d
