@@ -8,6 +8,13 @@ branches:
     - master # build master branch only
 script:
   - hexo generate # generate static files
+
+addons:
+  ssh_known_hosts: 
+    - ssh.github.com
+    - github.com
+    - gist.github.com
+
 deploy:
   provider: pages
   skip-cleanup: true
