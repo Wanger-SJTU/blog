@@ -1,25 +1,40 @@
 sudo: false
 language: node_js
 node_js:
-  - 10 # use nodejs v10 LTS
+- 10
 cache: npm
 branches:
   only:
-    - master # build master branch only
+  - master
+# 配置环境
+before_install:
+  # 替换为刚才生成的解密信息
+  - openssl aes-256-cbc -K $encrypted_2d8c63ef40a5_key -iv $encrypted_2d8c63ef40a5_iv in id_rsa.enc -out  ~/.ssh/id_rsa -d
+  # 改变文件权限
+  - chmod 600 ~/.ssh/id_rsa 
+  # 配置 ssh
+  - eval $(ssh-agent)
+  - ssh-add ~/.ssh/id_rsa
+  - cp .travis/ssh_config ~/.ssh/config
+  # # 配置 git 替换为自己的信息
+  # - git config --global user.name 'acwong'
+  # - git config --global user.email acwong00@gmail.com
+
 script:
-  - hexo generate # generate static files
-
+- hexo generate
 addons:
-  ssh_known_hosts: 
-    - ssh.github.com
-    - github.com
-    - gist.github.com
-
+  ssh_known_hosts:
+  - ssh.github.com
+  - github.com
+  - gist.github.com
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: $GH_TOKEN
+  github-token: "$GH_TOKEN"
   keep-history: true
   on:
     branch: master
   local-dir: public
+before_install:
+- openssl aes-256-cbc -K $encrypted_2d8c63ef40a5_key -iv $encrypted_2d8c63ef40a5_iv
+  -in id_rsa.enc -out ../id_rsa -d
