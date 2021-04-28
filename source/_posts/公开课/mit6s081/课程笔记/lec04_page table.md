@@ -70,5 +70,5 @@ Frans教授：我们不会加上虚拟地址中的offset，这里只是使用了
 
 
 
-- {% post_link lab03_pgtbl lab03_页表 %}
+- {% post_link 公开课/mit6s081/labs/lab03_pgtbl lab03_页表 %}
 
